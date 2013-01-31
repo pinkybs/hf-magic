@@ -1,0 +1,133 @@
+<link href="{%$staticUrl%}/css/style.css" rel="stylesheet" type="text/css" />
+<div class="magic">
+    <div class="pay">
+        <table border="0" cellspacing="0" cellpadding="0" id="pay_table" class="pay_table">
+            <tr>
+                <td colspan="3" class="pay_table_head"></td>
+            </tr>
+            <tr>
+                <td class="pay_table_left"></td>
+                <td class="pay_table_center">
+                    <div class="pay_info">
+                        <table border="0" cellspacing="0" cellpadding="0" id="pay_table_info" class="pay_table_info">
+                            <tr>
+                                <td rowspan="2" style="width: 60px; height: 60px; background: #fff;"><img src="{%$user.face%}" width="80" height="80" /></td>
+                                <td style="text-align: left; text-indent: 6px; color: #3B8DAF;" valign="bottom">{%$user.name|escape%}</td>
+                            </tr>
+                            <tr>
+                                <td id="pay_info_ico">钻石：{%$user.gold%}</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="pay_log">
+                        <table border="0" cellspacing="0" cellpadding="0" id="pay_table_log" class="pay_table_log">
+                            <tr>
+                                <td valign="bottom">
+                                    <table border="0" cellspacing="0" cellpadding="0" id="pay_menu" class="pay_menu">
+                                        <tr>
+                                            <td valign="bottom" class="pay_menu_default" id="pay_menu_0">充值钻石</td>
+                                            <td style="width: 5px;"></td>
+                                            <td valign="bottom" class="pay_menu_normal" id="pay_menu_1" onclick="orderlist();">订单查询</td>
+                                            <!-- <td style="width: 5px;"></td>
+                                            <td valign="bottom" class="pay_menu_normal" id="pay_menu_1" onclick="">充值记录</td>
+                                            <td style="width: 5px;"></td>
+                                            <td valign="bottom" class="pay_menu_normal" id="pay_menu_2" onclick="">消费记录</td> -->
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top">
+                                    <div id="pay_list_0" class="pay_list">
+                                        <!-- <div style="color: red;">充值送好礼！升级更快！宝石更多！</div>
+                                        <div>一次性充值 10元即可获赠“加送5宝石、船只加速卡3x5张”</div>
+                                        <div>一次性充值 20元即可获赠“加送10宝石、金币20000、船只加速卡3x10张”</div>
+                                        <div>一次性充值 50元即可获赠“加送80宝石、金币50000、船只加速卡3x20张、5星建筑兔小胖、瞭望塔”</div>
+                                        <div>一次性充值 100元即可获赠“加送200宝石、金币100000、船只加速卡3x40张、5星建筑兔宝宝、5星建筑兔小傻、5星建筑兔小胖”</div>
+                                         -->
+<br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                                        <table border="0" cellspacing="0" cellpadding="0" id="pay_list_table0" class="pay_list_table">
+                                            <tr>
+                                                <td><img src="{%$staticUrl%}/img/magic/pay/cz_1.gif" alt="" /></td>
+                                                <td><img src="{%$staticUrl%}/img/magic/pay/cz_5.gif" alt="" /></td>
+                                                <td><img src="{%$staticUrl%}/img/magic/pay/cz_2.gif" alt="" /></td>
+                                                <td><img src="{%$staticUrl%}/img/magic/pay/cz_3.gif" alt="" /></td>
+                                                <td><img src="{%$staticUrl%}/img/magic/pay/cz_4.gif" alt="" /></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="height: 50px;"><a href="#" name="btnOrder1" id="btnOrder1" onclick="payOrder(10);"><img src="{%$staticUrl%}/img/magic/pay/pay_button.jpg" alt="充值" /></a></td>
+                                                <td style="height: 50px;"><a href="#" name="btnOrder5" id="btnOrder5" onclick="payOrder(25);"><img src="{%$staticUrl%}/img/magic/pay/pay_button.jpg" alt="充值" /></a></td>
+                                                <td style="height: 50px;"><a href="#" name="btnOrder2" id="btnOrder2" onclick="payOrder(50);"><img src="{%$staticUrl%}/img/magic/pay/pay_button.jpg" alt="充值" /></a></td>
+                                                <td style="height: 50px;"><a href="#" name="btnOrder3" id="btnOrder3" onclick="payOrder(100);"><img src="{%$staticUrl%}/img/magic/pay/pay_button.jpg" alt="充值" /></a></td>
+                                                <td style="height: 50px;"><a href="#" name="btnOrder4" id="btnOrder4" onclick="payOrder(200);"><img src="{%$staticUrl%}/img/magic/pay/pay_button.jpg" alt="充值" /></a></td>
+                                            </tr>
+                                        </table>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                                    </div>
+
+
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+                <td class="pay_table_right"></td>
+            </tr>
+            <tr>
+                <td colspan="3" class="pay_table_foot"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<form id="frmPayOrder" method="post" action="http://app.renren.com/pay/web/submitOrder" target="_top">
+	<input type="hidden" value="{%$smarty.const.APP_ID%}" name="app_id" />
+	<input type="hidden" value="" id="order_number" name="order_number" />
+	<input type="hidden" value="" id="token" name="token" size="50" />
+	<input type="hidden" value="http://apps.renren.com/{%$smarty.const.APP_NAME%}/" id="redirect_url" name="redirect_url" size="50" />
+</form>
+<script type="text/javascript">
+
+    function disableButton(disable) {
+    	$('#btnOrder1').attr('disabled', disable);
+    	$('#btnOrder2').attr('disabled', disable);
+    	$('#btnOrder3').attr('disabled', disable);
+    	$('#btnOrder4').attr('disabled', disable);
+    	$('#btnOrder5').attr('disabled', disable);
+    }
+
+    function orderlist()
+    {
+    	HFApp.loadHtml('/pay/orderlist', 'POST', {}, 'text', 'payIframe');
+    }
+
+    function payOrder(num)
+    {
+    	disableButton(true);
+
+    	$.ajax({
+        	type: 'POST',
+			url: '/pay/pay',
+			data: {'amount': num},
+			dataType: 'json',
+			success: function(data) {
+				if(data != '') {
+                	$('#token').val(data.token);
+                	$('#order_number').val(data.orderid);
+                	//$('#order_desc').val(data.amount + "个人人豆兑换" + data.gold + "个宝石");
+                	$('#frmPayOrder').submit();
+				} else {
+					alert("[出现错误啦]: 暂时无法提交订单，请稍后重试。");
+				}
+			},
+			error: function(resp) {
+				alert("[出现错误啦]: 暂时无法提交订单，请稍后重试。");
+    			ffdebug('err:'+resp);
+    		},
+    		complete: function(resp) {
+    			//ffdebug('complete:'+resp);
+    			disableButton(false);
+    		}
+		});
+    }
+</script>

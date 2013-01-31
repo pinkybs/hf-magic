@@ -1,0 +1,50 @@
+<div class="title">
+	<div class="menu">
+        <ul style="padding-left:170px;width:700px;">
+        	<li style="width:76px;"><a href="javascript:void(0);" onclick="reloadGame();"><img src="{%$staticUrl%}/img/magic/menu/home.jpg" alt="开始游戏" alt="开始游戏" /></a></li>
+        	<li style="width:88px;"><a id="mnuInvite" href="javascript:void(0);"><img style="margin-top:-7px;padding-left:4px;" src="{%$staticUrl%}/img/magic/menu/invite.jpg" title="邀请好友" alt="邀请好友" /></a></li>
+        	<li style="width:68px;"><a target="_blank" href="http://page.renren.com/happymagic/group"><img style="padding-left:6px;" src="{%$staticUrl%}/img/magic/menu/forum.jpg" title="玩家论坛" alt="玩家论坛" /></a></li>
+        	<li style="width:68px;"><a target="_blank" href="http://page.renren.com/699136260/group/335431148"><img style="padding-left:8px;" src="{%$staticUrl%}/img/magic/menu/help.jpg" title="帮助" alt="帮助" /></a></li>
+        	<li style="width:68px;"><a id="mnuPay" href="javascript:void(0);" onclick="goPay();"><img style="padding-left:8px;" src="{%$staticUrl%}/img/magic/menu/paynew.jpg" title="充值" alt="充值" /></a></li>
+        </ul>
+	</div>
+</div>
+<div class="note">
+    <table border="0" cellspacing="0" cellpadding="0" id="note_table" class="note_table">
+        <tr>
+            <td colspan="3" class="note_table_head"></td>
+        </tr>
+        <tr>
+            <td class="note_table_left"></td>
+            <td class="note_table_center">
+                <ul class="note_table_ul">
+                     <li><a href="#">快乐魔法(Beta)测试上线啦～</a></li>
+                     <li>&nbsp;</li>
+                     <li><a href="#">魔法客服QQ：800004811  魔法交流群184010533</a>&nbsp;</li>
+                     <li>&nbsp;</li>
+                </ul>
+            </td>
+            <td class="note_table_right"></td>
+        </tr>
+        <tr>
+            <td colspan="3" class="note_table_foot"></td>
+        </tr>
+    </table>
+</div>
+
+<div id="fanBox" style="position:absolute;left:180px;top:100px;display:none;">
+	<div style="color:blue;position: absolute; left: 320px; top: 7px;"><a id="clsFanBox" href="javascript:void(0);">关闭</a></div>
+	<div id="fanIframe">
+	<iframe scrolling="no" frameborder="0" src="http://widget.renren.com/fanBoxWidget?appId=136260&pageImg=true&pageName=true&pageFriend=true&characterColor=%23333333&linkColor=%23005EAC&borderColor=%23D3D5D6&mainBackground=%23F0F5F8&subBackground=%23F0F5F8&desc=%E6%88%90%E4%B8%BA%E5%85%B3%E6%B3%A8%E8%80%85%EF%BC%8C%E8%8E%B7%E5%BE%97%E6%9C%80%E6%96%B0%E5%8A%A8%E6%80%81%E3%80%82" style="width: 390px;height: 270px;"></iframe>
+	</div>
+</div>
+
+<div id="inviteBox" style="position:absolute;left:27px;top:150px;display:none;">
+	<div style="color:blue;position: absolute; left: 320px; top: 7px;"><a id="clsInviteBox" href="javascript:void(0);">关闭</a></div>
+    <div id="inviteIframe"></div>
+</div>
+
+<div id="payBox" style="position: absolute; left: 1px; top: 140px;display:none;">
+	<div style="position: absolute; left: 725px; top: 7px;"><a id="clsPayBox" href="javascript:void(0);" onclick="closePay();"><img src="{%$staticUrl%}/img/common/btnClose.png"/></a></div>
+    <div id="payIframe"></div>
+</div>

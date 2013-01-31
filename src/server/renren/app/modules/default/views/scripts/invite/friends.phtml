@@ -1,0 +1,14 @@
+<link href="{%$staticUrl%}/apps/island/css.css?v=3.25" rel="stylesheet" type="text/css" />
+
+<div class="main">
+{%include file="menu.phtml"%}
+
+	<div class="txtcontent">选择你想要邀请的好友！</div>
+
+    <xn:request-form action="http://apps.{%$domain%}/rrisland/invite/send" content="和 TA 一起去快乐岛主上看看吧！ &lt;xn:req-choice url=&quot;http://apps.{%$domain%}/rrisland/?{%$params%}&quot; label=&quot;接受邀请&quot;&gt;">
+        <input type="hidden" name="hf_st" value="{%$st%}" />
+        <input type="hidden" name="hf_sg" value="{%$sg%}" />
+        <xn:multi-friend-selector-x actiontext="" mode="naf" />
+    </xn:request-form>
+</div>
+

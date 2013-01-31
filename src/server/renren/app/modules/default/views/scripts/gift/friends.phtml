@@ -1,0 +1,83 @@
+<link href="{%$staticUrl%}/apps/island/css.css?v=3.25" rel="stylesheet" type="text/css" />
+
+<div class="main">
+{%include file="menu.phtml"%}
+
+	<div class="content">
+	<script type="text/javascript">
+        var count = {%$count%};
+
+        var friendlist = null;
+
+        function get_friendlist()
+        {
+            if (friendlist == null) {
+                var friendlistObj = document.getElementById('friendlist');
+                if (friendlistObj) {
+                    friendlist = friendlistObj.getElementsByTagName('input');
+                }
+            }
+            return friendlist;
+        }
+
+        function gift_check(id)
+        {
+            var obj = document.getElementById(id);
+            if(obj){
+                obj.getChecked()?count--:count++;
+                var scount = document.getElementById('scount');
+                if (scount) scount.setTextValue(count);
+                var fs = get_friendlist();
+                if(fs) {
+                    if (count<=0) {
+                        for (var i=0; i< fs.length; i++) {
+                            if(!fs[i].getChecked()) {
+                                fs[i].setDisabled(true);
+                            }
+                        }
+                    } else {
+                        for (var i=0; i< fs.length; i++) {
+                            if(!fs[i].getChecked()) {
+                                fs[i].setDisabled(false);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <form method="post" action="/gift/send">
+        <input type="hidden" name="gid" value="{%$gid%}" />
+        <div class="yaoqing02-1"></div>
+        <div class="yaoqing02-2" style="height: 510px;">
+        	<div class="songli2-left">
+        		<div class="liwulibiao">
+        			<img src="{%$staticUrl%}/apps/island/images/gift/items/{%$gift.img%}" width="80" height="80" />
+        			<div class="txt">{%$gift.name%}</div>
+        		</div>
+        		<div align="center" style="margin-top: 5px; margin-left: -15px;">当前赠送次数还剩<label id="scount" style="width: 20px; color: red;">{%$count%}</label>次</div>
+        	</div>
+
+        	<div class="songli2-right" style="overflow: auto; width: 550px;">
+                <ul class="friendlist" id="friendlist">
+                	{% foreach from=$friends item=friend%}
+                	<li>
+                	<div class="mingzikuang">
+                	<div class="duoxuan">
+                	<p><input name="ids[]" type="checkbox" value="{%$friend.uid%}" id="fid_{%$friend.uid%}" {%if $count<=0%}disabled="true"{%/if%} onclick="gift_check('fid_{%$friend.uid%}');" /></p>
+                	</div>
+                	<div class="touxiang"><img width="50" height="50" src="{%$friend.thumbnail%}" /></div>
+                	<div class="mingzi">{%$friend.name|escape%}</div>
+                	</div>
+                	</li>
+                	{% /foreach %}
+            	</ul>
+        	</div>
+        	<div align="center">{%if $count>0 %}<input type="image" src="{%$staticUrl%}/apps/island/images/gift/mashangyaoqing2.gif" alt="马上赠送" />{%else%}<input type="image" src="{%$staticUrl%}/apps/island/images/gift/mashangyaoqing2-1.gif" alt="赠送次数不足" disabled="true" onclick="return false;" />{%/if%}</div>
+        </div>
+        <div class="yaoqing02-3"></div>
+        <div class="mashangyaoqing"></div>
+    </form>
+	</div>
+</div>

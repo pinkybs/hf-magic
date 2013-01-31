@@ -1,0 +1,9 @@
+Text for description in happyfish.display.view:PageList/removeRenderList is not valid.
+org.xml.sax.SAXParseException: 元素的内容必须由格式正确的字符数据或标记组成。
+
+Text for param in br.com.stimuli.loading:BulkLoader/add is not valid.
+org.xml.sax.SAXParseException: 元素类型“td”的结束标签必须以“>”分隔符结尾。
+
+Text for return in br.com.stimuli.loading:BulkProgressEvent/loadingStatus is not valid.
+org.xml.sax.SAXParseException: 元素类型“test”必须以匹配的结束标签“</test>”结束。
+

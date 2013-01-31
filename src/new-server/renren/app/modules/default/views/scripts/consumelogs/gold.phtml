@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>消费记录 | 快乐岛主</title>
+<link href="{%$staticUrl%}/apps/island/main_2011041101.css?v=1.01" rel="stylesheet" type="text/css" />
+<link href="{%$staticUrl%}/apps/island/pay_2011031501.css?v=1.00" rel="stylesheet" type="text/css" />
+<style type="text/css">
+<!--
+a img,:link img,:visited img {
+	border: 0 none;
+}
+-->
+</style>
+</head>
+<body>
+<div class="main" id="top">
+{%include file="menu.phtml"%}
+
+<div class="chongzhicontent">
+	<img src="{%$user.face%}" width="59" height="60" />
+	<div class="xinxi">
+		<div class="cname">{%$user.name|escape%}</div>
+		<div class="shuzi">宝石： <span style="color:#3c7e9a;font-weight:bold;">{%$user.gold%}</span></div>
+		<div class="fhyx"><a href="http://apps.renren.com/{%$smarty.const.APP_NAME%}" target="_top"><img src="{%$staticUrl%}/apps/island/images/pay/back.gif" width="80" height="35" /></a></div>
+	</div>
+</div>
+
+<div class="table">
+	<ul>
+	<li style="width:50px"></li>
+	<li><a href="{%$baseUrl%}/pay/top"><div class="nav_02">充值宝石</div></a></li>
+	<li><a href="{%$baseUrl%}/pay/log"><div class="nav_02">充值记录</div></a></li>
+	<li><a href="{%$baseUrl%}/consumelogs/gold"><div class="nav_01">消费记录</div></a></li>
+	</ul>
+</div>
+
+	<div class="content" style="padding-top:10px;width:750px;">
+		<div class="chongzhi02"><span style="color:#0C67B6">{%$date%} 消费记录(最多显示最新的50条)</span></div>
+		<table width="720" border="0" align="center" cellpadding="0" cellspacing="0" class="congzhitable">
+		<tr>
+			<td width="120"><strong>日期</strong></td>
+			<td width="140" align="center"><strong>消费宝石数量</strong></td>
+			<td><strong>消费信息摘要</strong></td>
+		</tr>
+		</table>
+		<div id="logdata"></div>
+	</div>
+</div>
+<script src="{%$staticUrl%}/js/utils.js?v=1.0" type="text/javascript"></script>
+<script type="text/javascript">
+var LOG_LIST = {%$logs%};
+var LOG_NUM = {%$count%};
+var LOG_PER_PAGE = {%$pageSize%};
+var LOG_PAGE_NUM = {%$pageNum%};
+
+function timeFormat(time)
+{
+	var timestamp = time*1000;
+	return (new Date(timestamp)).format('Y-m-d H:i:s');
+}
+
+function showPage(i)
+{
+	if (i <= 0 || i > LOG_PAGE_NUM) {
+		return;
+	}
+	var html = '<table width="720" border="0" align="center" cellpadding="0" cellspacing="0" class="congzhitable">';
+	if (LOG_NUM == 0) {
+		html += '<tr><td colspan="3">您还没有宝石消费记录</td></tr>';
+	} else {
+		var start = (i-1) * LOG_PER_PAGE;
+		var end = start + LOG_PER_PAGE;
+		if (end > LOG_NUM) {
+			end = LOG_NUM;
+		}
+		for(var j = start; j < end; j++) {
+			html += '<tr class="table-line"><td width="120">' + timeFormat(LOG_LIST[j].create_time) + '</td><td width="140" align="center"><span class="pay-count">'
+				 + LOG_LIST[j].cost + '</td><td>'
+				 + LOG_LIST[j].summary + '</td></tr>';
+		}
+	}
+	html += '</table><div align="center" style="width:720px">';
+	if (i > 1) {
+		html += '<a href="javascript:void(0);" onclick="showPage(' + (i-1) + ');"> ' + '上一页 </a>&nbsp;';
+	}
+	for(j = 1; j <= LOG_PAGE_NUM; j++) {
+		html += '<a href="javascript:void(0);" onclick="showPage(' + j + ');"> ' + j + ' </a>&nbsp;';
+	}
+	if (i < LOG_PAGE_NUM) {
+		html += '<a href="javascript:void(0);" onclick="showPage(' + (i+1) + ');"> ' + '下一页 </a>&nbsp;';
+	}
+	html += '</div>';
+	$('#logdata').html(html);
+}
+
+showPage(1);
+</script>
+</body>
+</html>

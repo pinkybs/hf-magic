@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>赠送礼物</title>
+        <link href="images/style.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" language="javascript" src="images/jquery-1.5.2.min.js"></script>
+        <script type="text/javascript" language="javascript" src="images/public.js"></script>
+    </head>
+
+    <body>
+        <div class="magic">
+            <div class="banner">这里是宣传Banner</div>
+            <div class="menu">
+                <table border="0" cellspacing="0" cellpadding="0" id="menu_table" class="menu_table">
+                    <tr>
+                        <td valign="bottom" style="width: 80px; height: 35px;"><a href="main.html"><img src="images/menu_ks.jpg" alt="开始游戏" /></a></td>
+                        <td valign="bottom" style="width: 85px; height: 42px;"><a href="invite.html"><img src="images/menu_yq.jpg" alt="邀请好友" /></a></td>
+                        <td valign="bottom" style="width: 84px; height: 36px;"><a href="gifts.html"><img src="images/menu_sl.jpg" alt="赠送礼物" /></a></td>
+                        <td valign="bottom" style="width: 86px; height: 35px;"><a href="pay.html"><img src="images/menu_cz.jpg" alt="充   值" /></a></td>
+                        <td valign="bottom" style="width: 70px; height: 35px;"><a href="###"><img src="images/menu_st.jpg" alt="收   听" /></a></td>
+                        <td valign="bottom" style="width: 70px; height: 35px;"><a href="#"><img src="images/menu_lt.jpg" alt="论   坛" /></a></td>
+                        <td valign="bottom" style="width: 70px; height: 35px;"><a href="help.html"><img src="images/menu_bz.jpg" alt="帮   助" /></a></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="global">
+                <table border="0" cellspacing="0" cellpadding="0" id="global_table" class="global_table">
+                    <tr>
+                        <td colspan="3" class="global_table_head"></td>
+                    </tr>
+                    <tr>
+                        <td class="global_table_left"></td>
+                        <td class="global_table_center">
+                            <table border="0" cellspacing="0" cellpadding="0" id="gifts_table" class="gifts_table">
+                                <tr>
+                                    <td colspan="3" class="gifts_table_head" valign="bottom">
+                                        <table border="0" cellspacing="0" cellpadding="0" id="gifts_menu" class="gifts_menu">
+                                            <tr>
+                                                <td valign="bottom" class="gifts_menu_default" id="gifts_menu_0" onclick="changemenu(0, 2, 'gifts_menu_default', 'gifts_menu_normal', 'gifts_menu_', 'gifts_list_');">赠送/索要礼物</td>
+                                                <td style="width: 5px;"></td>
+                                                <td valign="bottom" class="gifts_menu_normal" id="gifts_menu_1" onclick="changemenu(1, 2, 'gifts_menu_default', 'gifts_menu_normal', 'gifts_menu_', 'gifts_list_');">收到的礼物</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" class="gifts_table_space"></td>
+                                </tr>
+                                <tr>
+                                    <td class="gifts_table_left"></td>
+                                    <td class="gifts_table_center" valign="top">
+                                        <div id="gifts_list_0" class="gifts_list">
+                                            <ul id="gifts_giving">
+                                                <li><div class="gifts_giving_item"><img src="images/ico_1.jpg" alt="" /></div><div class="gifts_giving_name"><label for="radio_giving_1">我是一只小鸭子，咿呀咿呀哟!!!!</label></div><div><input type="radio" name="radio_giving" id="radio_giving_1" value="1" checked="checked" /></div></li>
+                                                <li><div class="gifts_giving_item"><img src="images/ico_1.jpg" alt="" /></div><div class="gifts_giving_name"><label for="radio_giving_2">我是一只小鸭子，咿呀咿呀哟!!!!</label></div><div><input type="radio" name="radio_giving" id="radio_giving_2" value="1" /></div></li>
+                                                <li><div class="gifts_giving_item"><img src="images/ico_1.jpg" alt="" /></div><div class="gifts_giving_name"><label for="radio_giving_3">我是一只小鸭子，咿呀咿呀哟!!!!</label></div><div><input type="radio" name="radio_giving" id="radio_giving_3" value="1" /></div></li>
+                                                <li><div class="gifts_giving_item"><img src="images/ico_1.jpg" alt="" /></div><div class="gifts_giving_name"><label for="radio_giving_4">我是一只小鸭子，咿呀咿呀哟!!!!</label></div><div><input type="radio" name="radio_giving" id="radio_giving_4" value="1" /></div></li>
+                                                <li><div class="gifts_giving_item"><img src="images/ico_1.jpg" alt="" /></div><div class="gifts_giving_name"><label for="radio_giving_5">我是一只小鸭子，咿呀咿呀哟!!!!</label></div><div><input type="radio" name="radio_giving" id="radio_giving_5" value="1" /></div></li>
+                                                <li><div class="gifts_giving_item"><img src="images/ico_1.jpg" alt="" /></div><div class="gifts_giving_name"><label for="radio_giving_6">我是一只小鸭子，咿呀咿呀哟!!!!</label></div><div><input type="radio" name="radio_giving" id="radio_giving_6" value="1" /></div></li>
+                                                <li><div class="gifts_giving_item"><img src="images/ico_1.jpg" alt="" /></div><div class="gifts_giving_name"><label for="radio_giving_7">我是一只小鸭子，咿呀咿呀哟!!!!</label></div><div><input type="radio" name="radio_giving" id="radio_giving_7" value="1" /></div></li>
+                                                <li><div class="gifts_giving_item"><img src="images/ico_1.jpg" alt="" /></div><div class="gifts_giving_name"><label for="radio_giving_8">我是一只小鸭子，咿呀咿呀哟!!!!</label></div><div><input type="radio" name="radio_giving" id="radio_giving_8" value="1" /></div></li>
+                                            </ul>
+                                        </div>
+                                        <div id="gifts_list_1" class="gifts_list" style="display: none;">
+                                            <table border="0" cellspacing="0" cellpadding="0" id="gifts_accept" class="gifts_accept">
+                                                <tr>
+                                                    <td id="gifts_accept_info"><div>【提示】：您每次可接受的礼物最大数目为100</div></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div id="gifts_accept_01" class="gifts_accept_item">你收到以下礼物</div>
+                                                        <div>
+                                                            <div class="gifts_accept_list">
+                                                                <ul>
+                                                                    <li><div class="gifts_accept_list_item"><a href="#"><img src="images/ico_1.jpg" alt="" /></a></div></li>
+                                                                    <li><div class="gifts_accept_list_item"><a href="#"><img src="images/ico_1.jpg" alt="" /></a></div></li>
+                                                                    <li><div class="gifts_accept_list_item"><a href="#"><img src="images/ico_1.jpg" alt="" /></a></div></li>
+                                                                    <li><div class="gifts_accept_list_item"><a href="#"><img src="images/ico_1.jpg" alt="" /></a></div></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="global_page">
+                                                                <ul>
+                                                                    <li class="global_page_normal"><a href="#">[01]</a></li><li><a href="#">[02]</a></li><li><a href="#">[03]</a></li><li><a href="#">[04]</a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div id="gifts_accept_02" class="gifts_accept_item">你好友回赠的礼物</div>
+                                                        <div>
+                                                            <div class="gifts_accept_list">
+                                                                <ul>
+                                                                    <li><div class="gifts_accept_list_item"><a href="#"><img src="images/ico_1.jpg" alt="" /></a></div></li>
+                                                                    <li><div class="gifts_accept_list_item"><a href="#"><img src="images/ico_1.jpg" alt="" /></a></div></li>
+                                                                    <li><div class="gifts_accept_list_item"><a href="#"><img src="images/ico_1.jpg" alt="" /></a></div></li>
+                                                                    <li><div class="gifts_accept_list_item"><a href="#"><img src="images/ico_1.jpg" alt="" /></a></div></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="global_page">
+                                                                <ul>
+                                                                    <li class="global_page_normal"><a href="#">[01]</a></li><li><a href="#">[02]</a></li><li><a href="#">[03]</a></li><li><a href="#">[04]</a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div id="gifts_accept_03" class="gifts_accept_item">你好友需要的礼物</div>
+                                                        <div>
+                                                            <div class="gifts_accept_msg">没有好友向你索取礼物！</div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </td>
+                                    <td class="gifts_table_right"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" class="gifts_table_foot">
+                                        <div id="gifts_table_foot_btn">
+                                            <div><a href="#"><img src="images/gifts_button_a.jpg" alt="赠送礼物" /></a></div>
+                                            <div><a href="#"><img src="images/gifts_button_b.jpg" alt="索要礼物" /></a></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td class="global_table_right"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="global_table_foot"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

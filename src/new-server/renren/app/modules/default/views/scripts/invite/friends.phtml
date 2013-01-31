@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>快乐岛主</title>
+    <link href="{%$staticUrl%}/apps/island/css_2011041102.css?v=1.01" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        html, body { height:100%; }
+        body { margin:0; }
+    </style>
+	<script type="text/javascript" src="http://static.connect.renren.com/js/v1.0/FeatureLoader.jsp"></script>
+	<script src="{%$staticUrl%}/js/jquery-1.4.3.min.js" type="text/javascript"></script>
+</head>
+<body scroll="no">
+<div class="main">
+{%include file="menu.phtml"%}
+	<div class="txtcontent">选择你想要邀请的好友！</div>
+	<div class="divFriendSelect">
+        <xn:serverxnml>
+            <script type="text/xnml">
+    			<xn:request-form action="http://apps.renren.com/{%$smarty.const.APP_NAME%}/invite/send" content="和 TA 一起去快乐岛主上看看吧！ &lt;xn:req-choice url=&quot;http://apps.renren.com/{%$smarty.const.APP_NAME%}?{%$params%}&quot; label=&quot;接受邀请&quot;&gt;">
+        			<input type="hidden" name="hf_st" value="{%$st%}" />
+        			<input type="hidden" name="hf_sg" value="{%$sg%}" />
+        			<xn:multi-friend-selector-x actiontext="" mode="naf" />
+    			</xn:request-form>
+            </script>
+        </xn:serverxnml>
+    </div>
+	<script type="text/javascript">
+    	XN_RequireFeatures(["EXNML", "CanvasUtil"], function()
+    	{
+    	   XN.Main.init("{%$smarty.const.APP_KEY%}", "{%$hostUrl%}/rr_xd_receiver.html");
+    	});
+	</script>
+</div>
+</body>
+</html>
+

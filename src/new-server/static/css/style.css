@@ -1,0 +1,412 @@
+/* 
+    Document   : style
+    Created on : 2011-4-28, 10:49:15
+    Author     : XSHan
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+body{
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    font-size: 12px;
+}
+img {
+    border: 0;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+    color: #057D8E;
+    behavior: url(blur.htc);
+}
+
+
+
+
+
+.magic{
+    width: 748px;
+    height: auto;
+    margin: 0 auto 50px auto;
+    overflow: hidden;
+}
+.banner{
+    width: 100%;
+    height: 300px;
+    line-height: 300px;
+}
+.body{
+    width: 100%;
+    height: 300px;
+    line-height: 300px;
+}
+
+.note_table_foot{
+    width: 748px;
+    height: 8px;
+    background: url(./cssimage/note_foot.jpg) no-repeat;
+}
+.note_table_center{
+    width: 734px;
+}
+.note_table_ul{
+    margin: 0 auto;
+    width: 100%;
+}
+.note_table_ul li{
+    width: 340px;
+    margin-left: 15px;
+    float: left;
+    text-align: left;
+    height: 22px;
+    line-height: 22px;
+    overflow: hidden;
+    word-break: keep-all;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    border-bottom: dotted 1px #C4BA70;
+}
+.global{
+    width: 100%;
+    height: auto;
+}
+.global_table{
+    width: 100%;
+}
+.global_table_head{
+    width: 748px;
+    height: 15px;
+    background: url(./cssimage/global_head.jpg) no-repeat;
+}
+.global_table_left{
+    background: url(./cssimage/global_left.jpg) repeat-y;
+    width: 7px;
+}
+.global_table_right{
+    background: url(./cssimage/global_right.jpg) repeat-y;
+    width: 7px;
+}
+.global_table_foot{
+    width: 748px;
+    height: 35px;
+    background: url(./cssimage/global_foot.jpg) no-repeat #46CBF2;
+}
+.global_table_center{
+    width: 734px;
+}
+.global_page .global_page_normal a {
+    color: #C30;
+    cursor: default;
+    position: static;
+}
+.global_page{
+    float: right;
+    margin: 5px 20px 0 0;
+}
+.global_page li {
+    float: left;
+    margin-right: 3px;
+}
+
+
+.gifts_table{
+    margin: 0 4px;
+}
+.gifts_table_head{
+    width: 726px;
+    height: 66px;
+    background: url(./cssimage/gifts_head.jpg) no-repeat;
+}
+.gifts_table_space{
+    width: 726px;
+    height: 20px;
+    background: url(./cssimage/gifts_space.jpg) no-repeat;
+}
+.gifts_table_left{
+    background: url(./cssimage/gifts_left.jpg) repeat-y;
+    width: 49px;
+}
+.gifts_table_right{
+    background: url(./cssimage/gifts_right.jpg) repeat-y;
+    width: 46px;
+}
+.gifts_table_foot{
+    width: 726px;
+    height: 85px;
+    background: url(./cssimage/gifts_foot.jpg) no-repeat #46CBF2;
+}
+.gifts_table_center{
+    width: 631px;
+    background: #FFFCDF;
+}
+.gifts_menu{
+    margin: 0 auto;
+    position: relative;
+    right: 100px;
+}
+.gifts_menu_default{
+    background: url(./cssimage/gifts_menu_a.jpg) no-repeat;
+    width: 119px;
+    height: 37px;
+    line-height: 25px;
+    color: #B92731;
+    font-weight: bold;
+    cursor: pointer;
+}
+.gifts_menu_normal{
+    background: url(./cssimage/gifts_menu_b.jpg) no-repeat 0 6px;
+    width: 95px;
+    height: 31px;
+    line-height: 25px;
+    color: #014967;
+    font-weight: bold;
+    cursor: pointer;
+}
+.gifts_list{
+    width: 100%;
+}
+#gifts_giving{
+    width: 620px;
+    margin: 0 auto;
+}
+#gifts_giving li{
+    float: left;
+    width: 25%;
+    margin: 20px auto 0 auto;
+}
+#gifts_giving li div{
+    width: 140px;
+    margin: 0 auto;
+}
+.gifts_giving_item{
+    background: url(./cssimage/gifts_item_bg.jpg) no-repeat;
+    height: 142px;
+}
+.gifts_giving_item img{
+    position: relative;
+    top: 20px;
+}
+.gifts_giving_name{
+    overflow: hidden;
+    word-break: keep-all;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-align: center;
+}
+.gifts_accept{
+    width: 100%;
+}
+#gifts_accept_info{
+    background: #F2D7A8;
+    padding-bottom: 8px;
+}
+#gifts_accept_info div{
+    background: #FFCC33;
+    height: 28px;
+    line-height: 28px;
+    width: 85%;
+    margin: 0 auto;
+    color: #855E31;
+    text-align: left;
+    padding-left: 12px;
+}
+.gifts_accept_item{
+    width: 100%;
+    height: 26px;
+    line-height: 26px;
+    margin: 10px 0 10px 10px;
+    text-align: left;
+    text-indent: 24px;
+    color: #6D492C;
+}
+#gifts_accept_01{
+    background: url(./cssimage/gifs_receiv_bg1.jpg) no-repeat;
+}
+#gifts_accept_02{
+    background: url(./cssimage/gifs_receiv_bg2.jpg) no-repeat;
+}
+#gifts_accept_03{
+    background: url(./cssimage/gifs_receiv_bg3.jpg) no-repeat;
+}
+.gifts_accept_list{
+    width: 620px;
+    margin: 0 auto;
+}
+.gifts_accept_list li{
+    float: left;
+    width: 25%;
+    margin: 0 auto 0 auto;
+}
+.gifts_accept_list li div{
+    width: 140px;
+    margin: 0 auto;
+}
+.gifts_accept_list_item{
+    background: url(./cssimage/gifts_item_bg.jpg) no-repeat;
+    height: 142px;
+}
+.gifts_accept_list_item img{
+    position: relative;
+    top: 20px;
+}
+.gifts_accept_msg {
+    height: 30px;
+    line-height: 30px;
+    color: #6D492C;
+}
+#gifts_table_foot_btn{
+    float: right;
+    padding-right: 50px;
+    overflow: hidden;
+}
+#gifts_table_foot_btn div{
+    overflow: hidden;
+    width: 84px;
+    height: 37px;
+    float: left;
+}
+.pay_table{
+    width: 100%;
+}
+.pay_table_head{
+    width: 748px;
+    height: 14px;
+    background: url(./cssimage/pay_head.jpg) no-repeat;
+}
+.pay_table_left{
+    background: url(./cssimage/pay_left.jpg) repeat-y;
+    width: 7px;
+}
+.pay_table_right{
+    background: url(./cssimage/pay_right.jpg) repeat-y;
+    width: 7px;
+}
+.pay_table_foot{
+    width: 748px;
+    height: 35px;
+    background: url(./cssimage/pay_foot.jpg) no-repeat #46CBF2;
+}
+.pay_table_center{
+    width: 734px;
+    background: #B5EEE7;
+}
+.pay_table_info{
+    width: 100%;
+    margin: 8px;
+}
+#pay_info_ico{
+    background: url(./cssimage/ico_2.gif) no-repeat 4px 4px;
+    text-align: left;
+    text-indent: 28px;
+    color: #3B8DAF;
+}
+.pay_table_log{
+    width: 100%;
+}
+.pay_menu{
+    margin: 0 auto;
+    float: left;
+}
+.pay_menu_default{
+    background: url(./cssimage/tab_1.jpg) no-repeat;
+    width: 121px;
+    height: 38px;
+    line-height: 25px;
+    color: #B92731;
+    font-weight: bold;
+    cursor: pointer;
+}
+.pay_menu_normal{
+    background: url(./cssimage/tab_2.jpg) no-repeat 0 8px;
+    width: 97px;
+    height: 30px;
+    line-height: 25px;
+    color: #014967;
+    font-weight: bold;
+    cursor: pointer;
+}
+.pay_list{
+    background: #FFF;
+    padding-top: 10px;
+}
+#pay_list_0 div{
+    text-align: left;
+    text-indent: 24px;
+    height: 22px;
+    line-height: 22px;
+}
+.pay_list_table{
+    width: 95%;
+    margin: 0 auto;
+}
+.pay_list_table td{
+    height: 25px;
+    line-height: 25px;
+}
+.pay_list_table_tr1{
+    font-weight: bold;
+}
+.help_table{
+    width: 100%;
+}
+.help_table_head{
+    width: 748px;
+    height: 127px;
+    background: url(./cssimage/help_head.jpg) no-repeat;
+}
+.help_table_left{
+    background: url(./cssimage/help_left.jpg) repeat-y;
+    width: 7px;
+}
+.help_table_right{
+    background: url(./cssimage/help_right.jpg) repeat-y;
+    width: 7px;
+}
+.help_table_foot{
+    width: 748px;
+    height: 35px;
+    background: url(./cssimage/help_foot.jpg) no-repeat #46CBF2;
+}
+.help_table_center{
+    width: 734px;
+    background: url(./cssimage/help_space.jpg) no-repeat #FFF;
+}
+.help_menu{
+    margin: 0 128px 0 0;
+    float: right;
+}
+.help_menu_default{
+    background: url(./cssimage/htlptab_1.gif) no-repeat;
+    width: 121px;
+    height: 38px;
+    line-height: 25px;
+    color: #B92731;
+    font-weight: bold;
+    cursor: pointer;
+}
+.help_menu_normal{
+    background: url(./cssimage/htlptab_2.gif) no-repeat 0 8px;
+    width: 97px;
+    height: 30px;
+    line-height: 25px;
+    color: #014967;
+    font-weight: bold;
+    cursor: pointer;
+}
+.help_list{
+    padding-top: 10px;
+}

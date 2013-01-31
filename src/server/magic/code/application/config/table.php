@@ -1,0 +1,22 @@
+<?php
+$config['cut'] = array(
+	'uid_map' => 0,
+	'role_decor' => 0,
+	'role' => 0,
+	'role_building' => 0,
+	'role_wall' => 0,
+	'role_wall_inbag' => 0,
+	'role_floor' => 0,
+	'role_floor_inbag' => 0,
+	'role_door_task' => 0,
+	'role_student_task' => 0,
+	'role_magic' => 0,
+	'role_item' => 0,
+	'role_event' => 0,
+	'role_event_condition' => 0,
+	'role_deal' => 0,
+	'role_deal_log' => 0,
+	'role_scene' => 0,
+	'role_buyitem_log' => 0,
+	'role_student' => 0,
+);

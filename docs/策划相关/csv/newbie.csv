@@ -1,0 +1,9 @@
+gid,index,name,icon,eventType,chats,actTips,contact,contactevent,人民币,道具
+,,,,,,,,,,
+1,1,点门放人,,onDoorReady##onDoorClick,blank##<happy>下面，我来教你如何经营自己的魔法教室||好像有学生到访了，点击门。让他们进来吧。,blank##clickDoor,blank##blank##blank,blank##blank##blank,0,
+2,2,教授魔法,,onStudentToDesk##onStudentNeedClick##onTeachMagic##blank,blank##<happy>很好，现在点击学生就可以传授他魔法了##<happy>点击教魔法##<happy>成功了，看来你比我想的要聪明哦！,blank##clickStudentToTeach##clickTeachMagic##blank,blank##blank##1##blank,blank##blank##onTeachMagicContactevent##blank,0,
+3,3,帮助学生,,onStudentEventHappen##onStudentEventClick##blank,blank##<however>但如果不够熟练，咒语就经常会反噬自己，比如这个学生……||让我们来帮助他，点击学生。##<happy>呼~得救了。在学生学习的过程中要随时观察学生的状况,blank##clickStudentTakeEvent##blank,blank##blank##blank,blank##blank##blank,0,
+4,4,收水晶,,onTeachComplete##onDeskCrystalClick##blank,blank##<happy>完成学习后，学生会支付学费，把它捡起来。##<happy>金币 可以用来购买各种物品哦||接下来，让我来教你变化咒。仔细看好了。,blank##clickDeskCrystal##blank,blank##blank##blank,blank##blank##blank,0,
+5,5,变化咒,,onMenuConjure##onChangeArt##onUseTransComplete##blank,<happy>点击施法按钮##<happy>选择变化术，并对自己使用~##blank##<happy>非常好！变化术可以获得重要的魔法材料，但只对玩家有作用哦。,clickMenuConjure##clickChangeArt##clickPlayerToTrans##closeTransButton,blank##0##1##blank,blank##onChangeArtContactevent##onUseTransCompleteContactevent##blank,0,
+6,6,合成术,,onMenuMixClick##onMixButton##onMixComplete##blank,<happy>点击合成术。##<happy>让我们先合成 一扇门 训练下！##<happy>点击合成按钮##<happy>成功了！物品已经放到了你的仓库中，记得装饰哦！,clickMenuMix##clickMixItem##clickMixButton##closeMixButton,blank##0##0##blank,blank##onMixButtonContactevent##onMixCompleteContactevent##blank,0,
+7,7,完成新手引导,,onFinishGuide,<happy>棒极了！你已经懂得了所有的操作，快去领取奖励吧！,clickFinishGuide,blank,blank,1,"[[8311,10],[8312,10],[8313,10]]"

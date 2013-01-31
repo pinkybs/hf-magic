@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="{%$staticUrl%}/renren/apps/island/compute/css.css" rel="stylesheet" type="text/css" />
+<script type="text/JavaScript">
+<!--
+function MM_jumpMenu(targ,selObj,restore){ //v3.0
+  eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
+  if (restore) selObj.selectedIndex=0;
+}
+//-->
+</script>
+</head>
+<body>
+<div class="bigkuang">
+<div class="bigtitle">后台数据监测  
+<div class="select-menu">  <select name="menu1" onchange="MM_jumpMenu('parent',this,0)">
+    <option>人人平台</option>
+    <option>淘宝平台</option>
+  </select>
+</div>
+</div>
+<div class="menu-left">
+  <table width="160" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td>&middot;控制台</td>
+    </tr>
+    <tr>
+      <td bgcolor="#6d6d6d" style="color:#FFFFFF">用户基本数据</td>
+    </tr>
+    <tr>
+      <td><a href="{%$baseUrl%}/compute/leveluser/p/496700">用户等级分布</a></td>
+    </tr>
+    <tr>
+      <td><a href="{%$baseUrl%}/compute/paylist/p/496700">充值排名</a></td>
+    </tr>
+    <tr>
+      <td><a href="#">导出excel</a></td>
+    </tr>
+  </table>
+</div>
+<div class="base-content">
+<div class="pingtaixinxi"><img src="{%$staticUrl%}/renren/apps/island/images/compute/renren logo.jpg" alt="人人" /> &nbsp;&nbsp;总用户数：234343       收入总额：3434543
+  <div class="select-menu">  <select name="menu2" onchange="MM_jumpMenu('parent',this,0)">
+    <option>2010-4-5 - 2010-5-5</option>
+  </select>
+    </div>
+</div>
+  <hr width="650" noshade="noshade" />
+  <div class="xianshixuanze"><a href="#">安装量小时分布</a>   <a href="#">活跃度小时分布</a>   <a href="#">付费数小时分布</a></div>
+  <div class="shubiao-title">安装量小时分布</div>
+  <div class="table-flash"><img src="{%$staticUrl%}/renren/apps/island/images/compute/xiaoshi.jpg" width="707" height="332" /></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<link href="{%$staticUrl%}/apps/island/css.css?v=3.25" rel="stylesheet" type="text/css" />
+
+<div class="main">
+{%include file="menu.phtml"%}
+
+<div class="content">
+<script type="text/javascript">
+	var PAGE_NUM = 2;
+	function hideAllPage()
+	{
+		var page = null;
+		for(var i = 1; i <= PAGE_NUM; i++) {
+			page = document.getElementById('page' + i);
+			if (page) {
+				page.setStyle('display', 'none');
+			}
+		}
+	}
+	
+	function goPage(i)
+	{
+		var page = document.getElementById('page' + i);
+		if (page) {
+			hideAllPage();
+			page.setStyle('display', 'block');
+		}
+	}
+
+</script>
+<form id="selectgifts" method="post" action="/gift/friends">
+<div class="yaoqing02-1-1">
+<div class="songchusuoxuan1"><input type="image" src="{%$staticUrl%}/apps/island/images/gift/songchusuanxuan.gif" alt="送出所选礼物" /></div>
+</div>
+<div class="yaoqing02-2" style="padding-left: 45px; width: 705px; height: 550px;" id="page1">
+<ul class="giftlist">
+	{% foreach from=$giftList[0] item=data key=key %}
+	<li><img src="{%$staticUrl%}/apps/island/images/gift/items/{%$data.img%}" width="80" height="80" />
+	<div class="txt">{%$data.name%}</div>
+	{% if $userInfo.level >= $data.level %}
+	<div class="dian"><input name="gid" id="gid" type="radio" {%if $key== 0 %}checked="checked" {%/if%} value="{%$data.gid%}" /></div>
+	{%else%} <span style="color: red;">{%$data.level%}级后可以赠送</span> {%/if%}</li>
+	{% /foreach %}
+</ul>
+<div align="right" style="width:650px"><a href="javascript:void(0);" onclick="goPage(1);"> 1 </a>&nbsp;<a href="javascript:void(0);" onclick="goPage(2);"> 2 </a>&nbsp;<a href="javascript:void(0);" onclick="goPage(2);">下一页</a></div>
+</div>
+<div class="yaoqing02-2" style="padding-left: 45px; width: 705px; height: 550px; display:none;" id="page2">
+<ul class="giftlist">
+	{% foreach from=$giftList[1] item=data key=key %}
+	<li><img src="{%$staticUrl%}/apps/island/images/gift/items/{%$data.img%}" width="80" height="80" />
+	<div class="txt">{%$data.name%}</div>
+	{% if $userInfo.level >= $data.level %}
+	<div class="dian"><input name="gid" id="gid" type="radio" {%if $key== 0 %}checked="checked" {%/if%} value="{%$data.gid%}" /></div>
+	{%else%} <span style="color: red;">{%$data.level%}级后可以赠送</span> {%/if%}</li>
+	{% /foreach %}
+</ul>
+<div align="right" style="width:650px"><a href="javascript:void(0);" onclick="goPage(1);">上一页</a>&nbsp;<a href="javascript:void(0);" onclick="goPage(1);"> 1 </a>&nbsp;<a href="javascript:void(0);" onclick="goPage(2);"> 2 </a></div>
+</div>
+
+<div class="yaoqing02-3">
+<div class="songchusuoxuan2"><input type="image" src="{%$staticUrl%}/apps/island/images/gift/songchusuanxuan.gif" alt="送出所选礼物" /></div>
+</div>
+<div class="mashangyaoqing"></div>
+</form>
+</div>
+</div>

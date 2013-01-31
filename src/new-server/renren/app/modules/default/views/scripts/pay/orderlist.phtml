@@ -1,0 +1,90 @@
+<link href="{%$staticUrl%}/css/style.css" rel="stylesheet" type="text/css" />
+<div class="magic">
+    <div class="pay">
+        <table border="0" cellspacing="0" cellpadding="0" id="pay_table" class="pay_table">
+            <tr>
+                <td colspan="3" class="pay_table_head"></td>
+            </tr>
+            <tr>
+                <td class="pay_table_left"></td>
+                <td class="pay_table_center">
+                    <div class="pay_info">
+                        <table border="0" cellspacing="0" cellpadding="0" id="pay_table_info" class="pay_table_info">
+                            <tr>
+                                <td rowspan="2" style="width: 60px; height: 60px; background: #fff;"><img src="{%$user.face%}" width="80" height="80" /></td>
+                                <td style="text-align: left; text-indent: 6px; color: #3B8DAF;" valign="bottom">{%$user.name|escape%}</td>
+                            </tr>
+                            <tr>
+                                <td id="pay_info_ico">钻石：{%$user.gold%}</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="pay_log">
+                        <table border="0" cellspacing="0" cellpadding="0" id="pay_table_log" class="pay_table_log">
+                            <tr>
+                                <td valign="bottom">
+                                    <table border="0" cellspacing="0" cellpadding="0" id="pay_menu" class="pay_menu">
+                                        <tr>
+                                            <td valign="bottom" class="pay_menu_normal" id="pay_menu_0" onclick="goPay();">充值钻石</td>
+                                            <td style="width: 5px;"></td>
+                                            <td valign="bottom" class="pay_menu_default" id="pay_menu_1">订单查询</td>
+                                            <!-- <td style="width: 5px;"></td>
+                                            <td valign="bottom" class="pay_menu_normal" id="pay_menu_1" onclick="">充值记录</td>
+                                            <td style="width: 5px;"></td>
+                                            <td valign="bottom" class="pay_menu_normal" id="pay_menu_2" onclick="">消费记录</td> -->
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top">
+                                    <div id="pay_list_1" class="pay_list" style="height:410px">
+                                        <table border="0" cellspacing="0" cellpadding="0" id="pay_list_table1" class="pay_list_table">
+                                            <tr>
+                                                <td colspan="4" style="text-align: left; text-indent: 24px; height: 28px; line-height: 28px;">充值记录 <span style="color: #7D8D8D;">共{%$logCnt%}条</span></td>
+                                            </tr>
+                                            <tr class="pay_list_table_tr1">
+                                                <td style="width: 180px; height: 38px;">日期</td>
+                                                <td style="width: 80px; height: 38px;">充值宝石数量</td>
+                                                <td style="width: 250px; height: 38px;">消费</td>
+                                                <td style="height: 38px;">操作</td>
+                                            </tr>
+                                            {% foreach from=$logs item=log %}
+                                            <tr>
+                                                <td>{%$log.order_time|date_format:"%Y-%m-%d %H:%M:%S"%}</td>
+                                                <td style="color: #F00;">{%$log.gold%}</td>
+                                                <td>{%$log.amount%}人人豆</td>
+                                                <td>{% if $log.status==1 %}充值已完成{% else %}<a href="#" onclick="queryOrder('{%$log.orderid%}');">查看订单</a>{% /if %}</td>
+                                            </tr>
+                                            {%/foreach%}
+                                            <!-- <tr>
+                                                <td colspan="4">
+                                                    <div class="global_page">
+                                                        <ul>
+                                                            <li class="global_page_normal"><a href="#">[01]</a></li><li><a href="#">[02]</a></li><li><a href="#">[03]</a></li><li><a href="#">[04]</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr> -->
+                                        </table>
+
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+                <td class="pay_table_right"></td>
+            </tr>
+            <tr>
+                <td colspan="3" class="pay_table_foot"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+<script type="text/javascript">
+    function queryOrder(orderid)
+    {
+    	HFApp.loadHtml('/pay/queryorder', 'POST', {'orderid':orderid}, 'text', 'payIframe');
+    }
+</script>

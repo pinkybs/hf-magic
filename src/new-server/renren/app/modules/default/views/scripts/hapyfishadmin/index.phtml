@@ -1,0 +1,13 @@
+{%include file="hapyfishadmin/header.phtml"%}
+	<h1>快乐魔法后台管理（{% if $smarty.const.SERVER_ID==9 %}开发服{% elseif $smarty.const.SERVER_ID==99%}测试服{% else %}***正服***{% /if %}）</h1>
+	{%include file="hapyfishadmin/nav.phtml"%}
+
+	<div id="container">
+		<strong>服务器信息：<div style="color:red">{% if $smarty.const.SERVER_ID==9 %}开发服{% elseif $smarty.const.SERVER_ID==99%}测试服{% else %}***正服***{% /if %}</div></strong>
+		<br/>平台编号：{%$smarty.const.SNS_ID%}
+		<br/>应用appId：{%$smarty.const.APP_ID%}
+		<br/>应用名称：{%$smarty.const.APP_NAME%}
+		<br/>模拟登录地址：{%$smarty.const.HOST%}/watch?uid=XXX
+	</div><!--/#container-->
+
+{%include file="hapyfishadmin/footer.phtml"%}

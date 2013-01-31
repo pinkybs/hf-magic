@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>选择朋友 - 赠送礼物 - 欢乐海岛</title>
+<link href="{%$staticUrl%}/apps/island/css_2011041102.css?v=1.01" rel="stylesheet" type="text/css" />
+<link media="screen" type="text/css" rel="stylesheet" href="{%$staticUrl%}/apps/island/a/gb_app.css?v=1.01" />
+<style type="text/css">
+<!--
+a img,:link img,:visited img {
+	border: 0 none;
+}
+#queryDiv {
+display:none;
+left:240px;
+top:350px;
+position:absolute;
+}
+-->
+</style>
+</head>
+<body>
+<div class="main">
+{%include file="menu.phtml"%}
+
+<div id="main_content" class="content" style="padding-top:2px;">
+<div class="gift_friend_area_1"></div>
+<div class="gift_friend_area_2" style="height: 510px;">
+<div class="gift_friend_left">
+{%if $tid == 3%}
+<img src="{%$staticUrl%}/apps/island/images/gift2/{%$gift.img%}" />
+{%else%}
+<div class="gift_item"><img src="{%$staticUrl%}/apps/island/images/gift/items/{%$gift.img%}" width="80" height="80" />
+<div class="txt">{%$gift.name%}</div>
+</div>
+{%/if%}
+{%if $tid == 1%}
+<div align="center" style="margin-top: 5px; margin-left: -15px;">当前赠送次数还剩<label id="scount" style="width: 20px; color: red;">{%$giftSendNum%}</label>次</div>
+{%/if%}
+</div>
+<div id="friend_content" class="gift_friend_right" style="height:450px;"></div>
+<div id="div_send_button" align="center" style="padding-left:80px;">
+{%if $friendNum > 0 %}
+{%if $giftSendNum > 0 || $tid <> 1 %}
+<input id="btnSend" type="image" src="{%$staticUrl%}/apps/island/images/gift/send.gif"  onclick="send();" />
+<input id="btnSendDisabled" style="display:none;" type="image" src="{%$staticUrl%}/apps/island/images/gift/send_disabled.gif" onclick="return false;" />
+{%else%}
+<input id="btnSendDisabled" type="image" src="{%$staticUrl%}/apps/island/images/gift/send_disabled.gif" onclick="return false;" />
+{%/if%}
+{%/if%}
+</div>
+</div>
+<div class="gift_friend_area_3"></div>
+<div></div>
+
+<div style="width: 417px; display: none;" class="layer_global" id="queryDiv">
+	<div class="layer_global_main">
+		<div class="layer_global_title"><h3>赠送朋友礼物</h3><button title="关闭" id="closeQuery" onclick="closeQuery();"><span class="none">╳</span></button></div>
+		<div class="layer_global_cont">
+			<div style="margin: 20px;" class="wrap"><span id="gift_send_result"></span></div>
+		</div>
+	</div>
+</div>
+</div>
+
+<script type="text/javascript">
+	var SELECT_GID = {%$gift.gid%};
+	var FRIEND_LIST = {%$friendList%};
+	var FRIEND_NUM = {%$friendNum%};
+	var FRIEND_PER_PAGE = {%$pageSize%};
+	var FRIEND_PAGE_NUM = {%$pageNum%};
+	var STATIC_URL = '{%$staticUrl%}';
+	var GIFT_SEND_NUM = {%$giftSendNum%};
+	var sendCounter = GIFT_SEND_NUM;
+	var tid = {%$tid%};
+
+	function escapeHTML(html)
+	{
+		var escaped = html;
+		var findReplace = [[/&/g, "&amp;"], [/</g, "&lt;"], [/>/g, "&gt;"], [/"/g, "&quot;"]]
+		for(var item in findReplace) {
+    		escaped = escaped.replace(item[0], item[1]);
+    	}
+    	return escaped;
+	}
+
+	function check(id)
+	{
+		var boxid = 'boxid_' + id;
+		var obj = document.getElementById(boxid);
+		if(obj){
+			var curCount = sendCounter;
+			if (obj.checked) {
+				sendCounter--;
+				if (FRIEND_LIST[id]) {
+					FRIEND_LIST[id].selected = 1;
+				}
+			} else {
+				sendCounter++;
+				if (FRIEND_LIST[id]) {
+					FRIEND_LIST[id].selected = 0;
+				}
+			}
+			$('#scount').html(sendCounter);
+			if (curCount <= 0 || sendCounter <= 0) {
+				showPage(curPage);
+			}
+        }
+	}
+
+	function send()
+	{
+		if (GIFT_SEND_NUM <= 0 && tid == 1) {
+			return;
+		}
+
+		var fids = [];
+		for(var i = 0 ; i < FRIEND_NUM; i++) {
+			if (FRIEND_LIST[i].selected) {
+				fids.push(FRIEND_LIST[i].uid);
+				FRIEND_LIST[i].selected = 0;
+			}
+		}
+		if (fids.length == 0) {
+			return;
+		}
+
+		fids = fids.join(',');
+		$('#btnSend').hide();
+		$('#btnSendDisabled').show();
+		var dt = {gid:SELECT_GID, fids:fids};
+		$.post('/gift/send', dt, function(data) {
+			var html = '';
+			if (data.errno != 0) {
+				html = '数据提交错误[' + data.errno + ']';
+			} else {
+				html = '选中好友数：' + data.count + '，成功发送数：' + data.num;
+				GIFT_SEND_NUM -= data.num;
+				sendCounter = GIFT_SEND_NUM;
+				if (sendCounter > 0) {
+					$('#btnSend').show();
+					$('#btnSendDisabled').hide();
+					$('#scount').html(sendCounter);
+				}
+				showPage(1);
+			}
+			$('#gift_send_result').html(html);
+			$('#queryDiv').show();
+		}, "json");
+	}
+
+	function closeQuery()
+	{
+		$('#queryDiv').hide();
+	}
+
+	function showPage(i)
+	{
+		if (i <= 0 || (FRIEND_NUM > 0 && i > FRIEND_PAGE_NUM)) {
+			return;
+		}
+		var html = ''
+		if (FRIEND_NUM == 0) {
+			html = '<div style="padding-top:100px;text-align:center">你还没有好友加入应用，赶快 <a href="/invite/top?from=gift">邀请</a> 吧!</div>';
+		} else {
+			curPage = i;
+			var k = 0;
+			var start = (i-1) * FRIEND_PER_PAGE;
+			var end = start + FRIEND_PER_PAGE;
+			if (end > FRIEND_NUM) {
+				end = FRIEND_NUM;
+			}
+			html = '<ul class="friendlist" style="height:420px;">';
+			for(var j = start; j < end; j++) {
+				html += '<li><div class="name_area"><div class="checkbox"><p><input name="ids[]" type="checkbox" value="'
+					  + FRIEND_LIST[j].uid + '" id="boxid_' + j + '"';
+				if (FRIEND_LIST[j].selected) {
+					html+= ' checked="true"';
+				} else {
+					if (sendCounter <= 0) {
+						html += ' disabled="true"';
+					}
+				}
+				html += ' onclick="check(' + j + ');" /></p></div><div class="face"><img src="'
+					 + FRIEND_LIST[j].face + '" /></div><div class="nickname">'
+					 + escapeHTML(FRIEND_LIST[j].name) + '</div></div></li>';
+
+			}
+			html += '</div></ul><div align="center" style="width:546px">';
+			if (i > 1) {
+				html += '<a href="javascript:void(0);" onclick="showPage(' + (i-1) + ');"> ' + '上一页 </a>&nbsp;';
+			}
+			for(j = 1; j <= FRIEND_PAGE_NUM; j++) {
+				if (j != i) {
+					html += '<a href="javascript:void(0);" onclick="showPage(' + j + ');"> ' + j + ' </a>&nbsp;';
+				} else {
+					html += ' ' + j + ' &nbsp;';
+				}
+			}
+			if ( i < FRIEND_PAGE_NUM) {
+				html += '<a href="javascript:void(0);" onclick="showPage(' + (i+1) + ');"> ' + '下一页 </a>&nbsp;';
+			}
+			html += '</div>';
+		}
+
+		$('#friend_content').html(html);
+	}
+	var curPage = 1;
+	showPage(1);
+</script>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<actionScriptProperties analytics="false" mainApplicationPath="coreLib.as" projectUUID="55af156e-0bd0-40c4-870d-7aedd81adbf5" version="10">
+  <compiler additionalCompilerArguments="-locale zh_CN" autoRSLOrdering="true" copyDependentFiles="false" fteInMXComponents="false" generateAccessible="false" htmlExpressInstall="true" htmlGenerate="false" htmlHistoryManagement="false" htmlPlayerVersionCheck="true" includeNetmonSwc="false" outputFolderLocation="E:/work/happyMagic/src/client/moduleLibs" outputFolderPath="bin-debug" removeUnusedRSL="true" sourceFolderPath="src" strict="false" targetPlayerVersion="0.0.0" useApolloConfig="false" useDebugRSLSwfs="true" verifyDigests="true" warn="true">
+    <compilerSourcePath>
+      <compilerSourcePathEntry kind="1" linkType="1" path="E:/work/happyMagic/src/client/happyfish/src"/>
+      <compilerSourcePathEntry kind="1" linkType="1" path="E:/work/happyMagic/src/client/happymagic/src"/>
+      <compilerSourcePathEntry kind="1" linkType="1" path="E:/work/happyMagic/src/client/libs"/>
+    </compilerSourcePath>
+    <libraryPath defaultLinkType="0">
+      <libraryPathEntry kind="4" path="">
+        <excludedEntries>
+          <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/flex.swc" useDefaultLinkType="false"/>
+        </excludedEntries>
+      </libraryPathEntry>
+      <libraryPathEntry kind="3" linkType="1" path="E:/work/happyMagic/src/client/magicLoader/lib/magicLoadingUi.swc" useDefaultLinkType="false"/>
+      <libraryPathEntry kind="1" linkType="1" path="E:/work/happyMagic/src/client/main/bin"/>
+    </libraryPath>
+    <sourceAttachmentPath/>
+  </compiler>
+  <applications>
+    <application path="coreLib.as"/>
+  </applications>
+  <modules/>
+  <buildCSSFiles/>
+  <flashCatalyst validateFlashCatalystCompatibility="false"/>
+</actionScriptProperties>
+

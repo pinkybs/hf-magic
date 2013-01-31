@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>快乐魔法</title>
+<link href="{%$staticUrl%}/css/main_2011041101.css?v=1.01" rel="stylesheet" type="text/css" />
+<script src="{%$staticUrl%}/js/jquery-1.4.3.min.js" type="text/javascript"></script>
+<style type="text/css">
+<!--
+body{
+	overflow-x:hidden;
+}
+
+a img,:link img,:visited img {
+	border: 0 none;
+}
+
+object#swfcontent {
+	display: inline;
+}
+
+.box {
+	border: 1px solid #CCCCCC;
+}
+-->
+</style>
+</head>
+<body>
+<div class="main" style="height:750px;">
+{%include file="menu.phtml"%}
+<div style="clear:both;"></div>
+	<div id="main_content">
+		<div id="loadingdiv" style="position: absolute; left: 350px; top: 250px;"><img src="{%$staticUrl%}/img/common/loading0.gif" /><br/>加载中......</div>
+		<div id="flashdiv"></div>
+		<script src="{%$staticUrl%}/js/swfobject.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			var VIEWER_ID = {%$uid%};
+			var OWNER_ID = VIEWER_ID;
+			var FIRST_LOGIN = {%$newuser%};
+
+			function getCookie(name) {
+				var arr = document.cookie.match(new RegExp('(^| )'+name+'=([^;]*)(;|$)'));
+				if(arr != null) return unescape(arr[2]); return null;
+			}
+			var hf_magic_skey = getCookie('{%$smarty.const.PRODUCT_ID%}_skey');
+			if (hf_magic_skey) {
+				var vars = {
+					interfaceHost:"{%$hostUrl%}/",
+					staticHost:"{%$staticUrl%}/swf/",
+					createUrl: "{%$createUrl%}",
+					initInterface: "{%$hostUrl%}/api/initswf",
+					localWords: "{%$staticUrl%}/swf/data/localeWord.txt",
+					piantou: "{%$piantou%}",
+					initUi: "{%$staticUrl%}/swf/loading1.swf?v=2011040701",
+					tipsStr: '{%$tipsStr%}',
+					createModule: "{%$createModule%}"
+				};
+	        	var params = { allowScriptAccess: "always", menu:"false", wmode: "opaque", allowFullScreen: "true", bgcolor: "#ffffff", align: "middle", quality: "high"};
+	        	var attrs = { id: "magicLoader", name: "magicLoader" };
+	        	swfobject.embedSWF("{%$staticUrl%}/swf/MagicLoader.swf?v=20111111v1", "flashdiv",  "748", "600", "10.0", "{%$staticUrl%}/expressInstall.swf", vars, params, attrs);
+	        	hideLoading();
+		    } else {
+	        	var html = '<div style="padding-top:50px;color:red;font-size:14px;text-align:center;">检测到您的浏览器没有开启或接收Cookie！请尝试开启后，重新进入。</div>';
+	        	$('#flashdiv').html(html);
+	        }
+
+	        function hideLoading()
+	        {
+	        	$('#loadingdiv').hide();
+	        }
+	        $('#loadingdiv').hide();
+		</script>
+	</div>
+</div>
+
+{%include file="footer.phtml"%}

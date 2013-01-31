@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<app>	
+	<database>
+		<db_basic>
+			<adapter>PDO_MYSQL</adapter>
+			<config>
+				<host>127.0.0.1</host>
+				<username>mysql</username>
+				<password>mysql</password>
+				<dbname>magic</dbname>
+			</config>
+		</db_basic>
+	</database>
+</app>

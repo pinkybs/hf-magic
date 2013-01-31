@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<app>
+	<secret>
+		<validationKey>0003AC14AEE8DD55394C9A07E8352A99512E0B21</validationKey>
+		<validation>sha1</validation>
+	</secret>
+
+    <session>
+        <cookie_domain>zhangx.cn</cookie_domain>
+     	<save_handler>memcache</save_handler>
+     	<save_path>tcp://127.0.0.1:11211</save_path>
+    </session>
+
+    <cache>
+        <memcache>
+           <servers>
+               <server>
+                   <host>127.0.0.1</host>
+                   <port>11211</port>
+                   <persistent>true</persistent>
+               </server>
+               <server>
+                   <host>127.0.0.1</host>
+                   <port>11211</port>
+                   <persistent>true</persistent>
+               </server>
+           </servers>
+        </memcache>
+    </cache>
+
+	<server>
+		<host>http://zhangx.cn:8082</host>
+		<static>http://zhangx.cn:8082/static</static>
+	</server>
+
+</app>

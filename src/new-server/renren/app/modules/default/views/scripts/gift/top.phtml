@@ -1,0 +1,295 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>选择礼物 - 赠送礼物 - 欢乐海岛</title>
+<link href="{%$staticUrl%}/apps/island/css_2011041102.css?v=1.02" rel="stylesheet" type="text/css" />
+<link href="{%$staticUrl%}/apps/island/css_gift.css?v=1.17" rel="stylesheet" type="text/css" />
+<style type="text/css">
+<!--
+a img,:link img,:visited img {
+	border: 0 none;
+}
+-->
+</style>
+</head>
+<body>
+<div class="main">
+{%include file="menu.phtml"%}
+
+<div class="bg">
+	<div class="sl01-bg01"></div>
+	<div class="sl01-bg02">
+		<div class="sl01-bg02-1 left"></div>
+		<div class="sl01-bg02-2 left"><a href="javascript:void(0)"><img src="{%$staticUrl%}/apps/island/images/gift2/sl01_03.gif" alt="赠送礼物" border="0" /></a></div>
+		<div class="sl01-bg02-3 left"><a href="{%$hostUrl%}/gift/get" ><img src="{%$staticUrl%}/apps/island/images/gift2/sl01_04.gif" alt="收到的礼物" border="0" /></a></div>
+		<div class="sl01-bg02-4 left"><a href="{%$hostUrl%}/gift/post"><img src="{%$staticUrl%}/apps/island/images/gift2/sl01_05.gif" alt="送出的礼物" border="0" /></a></div>
+		<div class="sl01-bg02-5 left"></div>
+		<div class="sl01-bg02-6 left"></div>
+	</div>
+
+	<div class="sl01-bg03"><span id="test_msg"></span>
+		<div class="sl01-li" id="img1">
+			<div class="liwu-cz right"><a href="http://apps.renren.com/{%$smarty.const.APP_NAME%}/pay/top" target="_top"><img src="{%$staticUrl%}/apps/island/images/gift2/sl01-cz.gif" alt="充值" border="0" /></a></div>
+			<div class="liwu-bss right"> 余额：{%$userGold%}宝石 </div>
+			<div class="liwu-bt right"><a href="javascript:void(0);" onClick="showType(3)"><img src="{%$staticUrl%}/apps/island/images/gift2/sl01-zsbs.gif"  alt="赠送宝石" border="0"/></a></div>
+			<div class="liwu-bt right" style="padding-left:12px"><a href="javascript:void(0);" onClick="showType(2)"><img src="{%$staticUrl%}/apps/island/images/gift2/sl01-sclw.gif"  alt="收费礼物" border="0" /></a></div>
+			<div class="liwu-bt right"><a href="javascript:void(0);" onClick="showType(1)"><img src="{%$staticUrl%}/apps/island/images/gift2/sl01-mflw.gif"  border="0" /></a></div>
+		</div>
+		<div class="sl01-li" id="img2" style="display:none">
+			<div class="liwu-cz right"><a href="http://apps.renren.com/{%$smarty.const.APP_NAME%}/pay/top" target="_top"><img src="{%$staticUrl%}/apps/island/images/gift2/sl01-cz.gif" alt="充值" border="0" /></a></div>
+			<div class="liwu-bss right"> 余额：{%$userGold%}宝石</div>
+			<div class="liwu-bt right"><a href="javascript:void(0);" onClick="showType(3)"><img src="{%$staticUrl%}/apps/island/images/gift2/sl01-zsbs.gif"  alt="赠送宝石" border="0" /></a></div>
+			<div class="liwu-bt right" style="padding-left:12px"><a href="javascript:void(0);" onClick="showType(2)"><img src="{%$staticUrl%}/apps/island/images/gift2/sl01-sclw-2.gif"  alt="收费礼物" border="0" /></a></div>
+			<div class="liwu-bt right"><a href="javascript:void(0);" onClick="showType(1)"><img src="{%$staticUrl%}/apps/island/images/gift2/sl01-mflw-2.gif"  border="0" /></a></div>
+		</div>
+		<div class="sl01-li" id="img3" style="display:none">
+			<div class="liwu-cz right"><a href="http://apps.renren.com/{%$smarty.const.APP_NAME%}/pay/top" target="_top"><img src="{%$staticUrl%}/apps/island/images/gift2/sl01-cz.gif" alt="充值" border="0" /></a></div>
+			<div class="liwu-bss right"> 余额：{%$userGold%}宝石 </div>
+			<div class="liwu-bt right"><a href="javascript:void(0);" onClick="showType(3)"><img src="{%$staticUrl%}/apps/island/images/gift2/sl01-zsbs-2.gif"  alt="赠送宝石" border="0" /></a></div>
+			<div class="liwu-bt right" style="padding-left:12px"><a href="javascript:void(0);" onClick="showType(2)"><img src="{%$staticUrl%}/apps/island/images/gift2/sl01-sclw.gif"  alt="收费礼物" border="0" /></a></div>
+			<div class="liwu-bt right"><a href="javascript:void(0);" onClick="showType(1)"><img src="{%$staticUrl%}/apps/island/images/gift2/sl01-mflw-2.gif"  border="0" /></a></div>
+		</div>
+		<div class="sl01-li" id="img4" style="display:none">
+			<div class="liwu-cz right"><a href="http://apps.renren.com/{%$smarty.const.APP_NAME%}/pay/top" target="_top"><img src="{%$staticUrl%}/apps/island/images/gift2/sl01-cz.gif" alt="充值" border="0" /></a></div>
+			<div class="liwu-bss right"> 余额：{%$userGold%}宝石 </div>
+			<div class="liwu-bt right"><a href="javascript:void(0);" onClick="showType(3)"><img src="{%$staticUrl%}/apps/island/images/gift2/sl01-zsbs.gif"  alt="赠送宝石" border="0" /></a></div>
+			<div class="liwu-bt right" style="padding-left:12px"><a href="javascript:void(0);" onClick="showType(2)"><img src="{%$staticUrl%}/apps/island/images/gift2/sl01-sclw.gif"  alt="收费礼物" border="0" /></a></div>
+			<div class="liwu-bt right"><a href="javascript:void(0);" onClick="showType(1)"><img src="{%$staticUrl%}/apps/island/images/gift2/sl01-mflw-2.gif"  border="0" /></a></div>
+		</div>
+		<div class="sl01-li" id="img5" style="display:none">
+			<div class="liwu-cz right"><a href="http://apps.renren.com/{%$smarty.const.APP_NAME%}/pay/top" target="_top"><img src="{%$staticUrl%}/apps/island/images/gift2/sl01-cz.gif" alt="充值" border="0" /></a></div>
+			<div class="liwu-bss right"> 余额：{%$userGold%}宝石 </div>
+			<div class="liwu-bt right"><a href="javascript:void(0);" onClick="showType(3)"><img src="{%$staticUrl%}/apps/island/images/gift2/sl01-zsbs.gif"  alt="赠送宝石" border="0" /></a></div>
+			<div class="liwu-bt right" style="padding-left:12px"><a href="javascript:void(0);" onClick="showType(2)"><img src="{%$staticUrl%}/apps/island/images/gift2/sl01-sclw.gif"  alt="收费礼物" border="0" /></a></div>
+			<div class="liwu-bt right"><a href="javascript:void(0);" onClick="showType(1)"><img src="{%$staticUrl%}/apps/island/images/gift2/sl01-mflw-2.gif"  border="0" /></a></div>
+		</div>
+	</div>
+
+	<form class="giftselect1" id="selectgifts1" method="post" action="/gift/friends">
+		<input type="hidden" name="tid" value="1" />
+		<div class="sl01-bg04" id="type_1">
+		{% foreach from=$giftFrees item=data_1 key=key_1%}
+			<div class="liwu-ul" id="tab{%$key_1%}" style="padding-left:0px">
+				<div style="padding-left:90px">
+					{% foreach from=$data_1 item=data key=key %}
+					<div class="mflw-li left" style="margin-bottom:20px">
+						<div class="liwu-img right"><img src="{%$staticUrl%}/apps/island/images/gift/items/{%$data.img%}?v=20101208" width="100" height="100" /></div>
+						<div class="liwu-txt right">{%$data.name%}<br /><br />
+						{% if $userLevel >= $data.level %}
+							<input type="hidden" name="MfcanSend" id="MfcanSend" value="-1" />
+							<input type="radio" name="gid" id="radio" onclick="MfSend();" value="{%$data.gid%}" />
+						{%else%}
+							<span style="color: red;">{%$data.level%}级后可以赠送</span>
+						{%/if%}
+						</div>
+					</div>
+					{% /foreach %}
+				</div>
+			</div>
+		{% /foreach %}
+		</div>
+	</form>
+
+	<form class="giftselect3" id="selectgifts3" method="post" action="/gift/friends">
+		<input type="hidden" name="tid" value="3" />
+		<input type="hidden" name="gift_value" id="gift_value" value="500" />
+		<div class="sl01-bg04" id="type_3">
+			<div class="liwu-ul">
+				<div class="zsbs-li right" style="margin-bottom:20px"><img src="{%$staticUrl%}/apps/island/images/gift2/bs-4.gif" />
+		  			<div class="liwu-txt3">
+		    			<input type="radio" name="gid" value="1000" onClick="setGiftValue(1000)" />1000宝石<br />
+		  				<label></label>
+					</div>
+				</div>
+				<div class="zsbs-li right" style="margin-bottom:20px"><img src="{%$staticUrl%}/apps/island/images/gift2/bs-3.gif" />
+				  <div class="liwu-txt3">
+					<input type="radio" name="gid" value="500" onClick="setGiftValue(500)" checked="checked" />500宝石<br />
+				  	<label></label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+
+	<form class="giftselect2" id="selectgifts2" method="post" action="/gift/friends">
+		<input type="hidden" name="tid" value="2" />
+		<div class="sl01-bg04" id="type_2">
+			{% foreach from=$giftCharges item=data_2 key=key_2 %}
+			<div class="liwu-ul" id="tab_2{%$key_2%}" style="padding-left:0px"><div style="padding-left:90px">
+				{% foreach from=$data_2 item=data key=key %}
+					<div class="sflw-li left" style="margin-bottom:20px">
+						<div class="liwu-img right"><img src="{%$staticUrl%}/apps/island/images/gift/items/{%$data.img%}" width="100" height="100" /></div>
+						<div class="liwu-txt2 right">价格：{%$data.price%}宝石<br />{%$data.name%}<br />
+				  			{% if $userLevel >= $data.level %}
+				  			<input type="hidden" name="canSend" id="canSend" value="-1" />
+								<label>
+									<input type="hidden" name="value_{%$data.gid%}" id="value_{%$data.gid%}" value="{%$data.price%}" />
+									<input type="radio" name="gid" onClick="setGiftValue({%$data.price%})" value="{%$data.gid%}" />
+								</label>
+							{%else%}
+								<span style="color: red;">{%$data.level%}级后可以赠送</span>
+							{%/if%}
+						</div>
+					</div>
+				{% /foreach %}
+				</div>
+			</div>
+			{% /foreach %}
+		</div>
+		<input type="hidden" name="histroy_value"  id="histroy_value" value="1" />
+	</form>
+
+<div class="sl01-bg04_1" id="type_4">
+	<div class="liwu-ul" style="padding-left:70px; padding-top:140px;text-align:center;font-size:14px; height:200px;color:#ff0000;">
+	  <p>你的宝石不够哦，建议您<a href='http://apps.renren.com/{%$smarty.const.APP_NAME%}/pay/top' target='_top'><b>马上充值</b></a><br/><br/></p>
+	  <p><a href="javascript:void(0)"><img src="{%$staticUrl%}/apps/island/images/gift2/fhyx.gif" style='cursor:hand' onClick="goback()" border="0" /></a></p>
+	</div>
+</div>
+
+<div class="sl01-bg04_1" id="type_5">
+	<div class="liwu-ul" style="padding-left:70px;padding-top:140px;text-align:center;font-size:14px;height:200px;color:#ff0000;">
+	  <p>免费礼物一天只能发送三次<br/>建议你发送<a href='/gift/top/t/2'><b>收费礼物</b></a>给你的好友</p>
+	  <p><a href="javascript:void(0)"><img src="{%$staticUrl%}/apps/island/images/gift2/fhyx.gif" style='cursor:hand' onclick="goback()" border="0" /></a></p>
+	</div>
+</div>
+
+<div class="sl01-bg07">
+<div class="sclw left" id="dosubmit1"><a onClick="doSubmit(1)"><img src="{%$staticUrl%}/apps/island/images/gift2/sclw.gif" border="0" style="cursor:pointer ;" /></a></div>
+<div class="sclw left" id="dosubmit2"><a onClick="doSubmit(2)"><img src="{%$staticUrl%}/apps/island/images/gift2/sclw.gif" border="0" style="cursor:pointer ;" /></a></div>
+<div class="sclw left" id="dosubmit3"><a onClick="doSubmit(3)"><img src="{%$staticUrl%}/apps/island/images/gift2/sclw.gif" border="0" style="cursor:pointer ;" /></a></div>
+<div class="sclw left" id="dosubmit4"></div><div class="sclw left" id="dosubmit5"></div>
+<div class="sl02-zx left" id="page_1">{% foreach from=$giftFrees item=data_1 key=key_1 %}<a href="javascript:void(0);" id="pag1_{%$key_1%}" class="cur_cls" onclick="showTab({%$key_1%})">[{%$key_1+1%}]</a> {% /foreach %}</div>
+<div class="sl02-zx left" id="page_2">{% foreach from=$giftCharges item=data_1 key=key_1 %}<a href="javascript:void(0);" id="pag2_{%$key_1%}" class="cur_cls" onclick="showTab_2({%$key_1%})">[{%$key_1+1%}]</a> {% /foreach %}</div>
+<div class="sl02-zx left" id="page_3"></div><div class="sl02-zx left" id="page_4"></div><div class="sl02-zx left" id="page_5"></div>
+</div>
+<div class="sl01-bg08"></div>
+</div>
+<script type="text/javascript">
+	var user_gold = "{%$userGold%}";
+	var site_url = '{%$staticUrl%}';
+	var gift_value = 0;
+	var count = '{%$count%}';
+
+	function doSubmit(i) {
+		var sub_obj = null;
+		switch(i) {
+			case 1:
+				sub_obj = document.getElementById('selectgifts1');
+
+				var MfcanSend = document.getElementById('MfcanSend').value;
+				if(MfcanSend != 1) {
+					return false;
+				}
+			break;
+			case 2:
+				sub_obj = document.getElementById('selectgifts2');
+				document.getElementById('histroy_value').value = 2;
+				var gift_value = document.getElementById('gift_value').value;
+
+				var canSend = document.getElementById('canSend').value;
+				if( canSend != 1 ) {
+					return false;
+				}
+	     	break;
+			case 3:
+				gift_value = document.getElementById('gift_value').value
+				document.getElementById('histroy_value').value = 3;
+				sub_obj = document.getElementById('selectgifts3');
+			break;
+		}
+
+		if(i != 1) {
+			if(parseInt(gift_value) == '0') {
+	        	return false;
+			}
+
+	     	else if(parseInt(gift_value) > parseInt(user_gold)) {
+	       		showType(4);
+	       		return false;
+	     	}
+		} else {
+			if(count <= 0) {
+				showType(5);
+				return false;
+			}
+		}
+
+		sub_obj.submit();
+		return false;
+	}
+
+	function goback() {
+		var histroyid = document.getElementById('histroy_value').value;
+		showType(parseInt(histroyid));
+	}
+
+	function setGiftValue(value) {
+		document.getElementById('gift_value').value = value;
+		document.getElementById('canSend').value = 1;
+	}
+
+	function MfSend() {
+		document.getElementById('MfcanSend').value = 1;
+	}
+
+	function showTab(j) {
+		var k = {% $freeCount %};
+		var i = 0;
+
+		for(i=0; i<k; i++) {
+			if(i == j) {
+				document.getElementById('tab'+i).style.display = '';
+				document.getElementById('pag1_'+i).className = 'cur_cls2';
+			} else {
+				document.getElementById('tab'+i).style.display = 'none';
+				document.getElementById('pag1_'+i).className = 'cur_cls';
+			}
+		}
+	}
+
+	function showTab_2(j) {
+		var k = {%$chargeCount%};
+		var i = 0;
+
+		for(i=0; i<k; i++) {
+			if(i == j) {
+				document.getElementById('tab_2'+i).style.display = '';
+			} else {
+				document.getElementById('tab_2'+i).style.display = 'none';
+			}
+		}
+	}
+
+	function showType(j) {
+		var k = 5;
+		for(i=1; i<=k; i++) {
+			if(i == j) {
+				var obj = document.getElementById('type_'+i);
+			   		obj.style.display = '';
+				var page_obj = document.getElementById('page_'+i);
+					page_obj.style.display = '';
+				var sub_obj = document.getElementById('dosubmit'+i);
+					sub_obj.style.display = '';
+				var img_obj = document.getElementById('img'+i);
+	           		img_obj.style.display = '';
+			} else {
+				var obj = document.getElementById('type_'+i);
+			   		obj.style.display = 'none';
+				var page_obj = document.getElementById('page_'+i);
+					page_obj.style.display = 'none';
+				var sub_obj = document.getElementById('dosubmit'+i);
+	           		sub_obj.style.display = 'none';
+				var img_obj = document.getElementById('img'+i);
+	           		img_obj.style.display = 'none';
+			}
+		}
+	}
+	showTab(0);
+	showTab_2(0);
+	showType({%$cid%});
+</script>
+</div>
+</body>
+</html>
+

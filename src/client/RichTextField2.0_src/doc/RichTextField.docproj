@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<docProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <pageTitle>RichTextField API</pageTitle>
+  <classPaths>D:\riaidea\richtextfield\2.0\src</classPaths>
+  <sourcesList>tests.Test</sourcesList>
+  <outputDirectory>D:\riaidea\richtextfield\2.0\doc</outputDirectory>
+  <activeCompiler>1</activeCompiler>
+  <extraOptions>-library-path+="../lib" -window-title "RichTextField API Documentation"</extraOptions>
+</docProject>

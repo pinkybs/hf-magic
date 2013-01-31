@@ -1,0 +1,28 @@
+<link href="{%$staticUrl%}/apps/magic/css.css?v={%$version.css%}" rel="stylesheet" type="text/css" />
+<style type="text/css">
+    #notice li a:hover,a:link,a:visited {
+        color:red;
+    }
+</style>
+		
+<div class="main">
+
+	i'm HappyMagic 
+ 	<div id="swfcontent">
+        <div id="flashdiv"></div>
+        <script type="text/javascript">
+            var appName = "{%$smarty.const.APP_NAME%}";
+        </script>
+        <script src="{%$staticUrl%}/js/json.js" type="text/javascript"></script>
+	    <script src="{%$staticUrl%}/js/swfobject.js" type="text/javascript"></script>
+	    <script type="text/javascript">
+	        var flashVars={"initInterface":"{%$staticUrl%}/swf/data/initData.txt","localWords":"{%$staticUrl%}/swf/data/localeWord.txt"};
+	        var params = { base: "{%$staticUrl%}/", allowScriptAccess: "always", menu:"false", wmode: "opaque", allowFullScreen: "false", bgcolor: "#ffffff", align: "middle", quality: "high"};
+	        var attrs = { id: "magicLoader", name: "magicLoader" };
+	        swfobject.embedSWF("{%$staticUrl%}/swf/MagicLoader.swf", "flashdiv",  "748", "600", "9.0.0", "{%$staticUrl%}/expressInstall.swf", flashVars, params, attrs);
+	    </script>
+    </div>
+    <!--<div id="swfcontent" style="height:950px;">
+        <xn:iframe addxnsig="true" frameborder="0" src="http://rrisland.hapyfish.com/flash?v=11" width="748" height="630" />
+    </div>-->
+</div>

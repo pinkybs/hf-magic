@@ -1,0 +1,1 @@
+﻿{"userInfo":{"uid":"111","name":"大头","face":"","level":11,"exp":10,"max_exp":100,"magic_type":1,"blue":100,"red":100,"green":11,"gem":11,"mp":100,"max_mp":1000,"door_limit":5,"tile_x_length":5,"tile_z_length":5}}

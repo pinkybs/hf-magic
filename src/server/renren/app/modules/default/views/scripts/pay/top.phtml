@@ -1,0 +1,157 @@
+<link href="{%$staticUrl%}/apps/island/css.css?v=3.25" rel="stylesheet" type="text/css" />
+
+<div class="main">
+{%include file="menu.phtml"%}
+
+	<div class="chongzhicontent">
+		<img src="{%$user.face%}" width="59" height="60" />
+		<div class="xinxi">
+			<div class="cname">{%$user.name|escape%}</div>
+			<div class="shuzi">宝石： <span style="color:#3c7e9a;font-weight:bold;">{%$user.gold%}</span></div>
+			<div class="fhyx"><a href="http://apps.{%$domain%}/rrisland"><img src="{%$staticUrl%}/apps/island/images/backg.gif" width="80" height="35" /></a></div>
+		</div>
+	</div>
+
+	<div class="table">
+		<ul>
+		<li style="width:50px"></li>
+		<li><a href="http://apps.{%$domain%}/rrisland/pay/top"><div class="nav_01">充值宝石</div></a></li>
+		<li><a href="http://apps.{%$domain%}/rrisland/pay/orderlogs"><div class="nav_02">充值记录</div></a></li>
+		<li><a href="http://apps.{%$domain%}/rrisland/pay/consumelogs"><div class="nav_02">消费记录</div></a></li>
+		</ul>
+	</div>
+
+	<div class="content" style="padding-top:10px;padding-left:40px;width:740px;">
+		<div style="color:red;padding:0 0 50px 0;">注：6月2日起，凡一次性充值50元即送“招财小猫金币”，充100元即送“招财小猫三猫组”（永久非卖）</div>
+		<form id="frmPayOrder" method="post" action="http://app.renren.com/pay/web/submitOrder">
+			<input type="hidden" value="{%$app_id%}" name="app_id" />
+			<input type="hidden" value="" id="order_number" name="order_number" />
+			<input type="hidden" value="" id="token" name="token" size="50" />
+			<input type="hidden" value="http://apps.{%$domain%}/rrisland/pay/top" id="redirect_url" name="redirect_url" size="50" />
+			<input type="hidden" value="" id="order_desc" name="desc" size="50" />
+			<div class="chongzhi">
+				<div align="center">
+					<p><img src="{%$staticUrl%}/apps/island/images/dm_100.gif" width="140" height="140" id="dm1" class="diamond" onclick="payOrder('frmPayOrder', 10);" title="兑换100宝石" /><br />
+						价格：10人人豆<br />
+						<input type="button" name="btnOrder1" id="btnOrder1" onclick="payOrder('frmPayOrder', 10);" value="充值" class="orderbtn" class="diamond" />
+					</p>
+					<label></label>
+				</div>
+			</div>
+			<div class="chongzhi">
+				<div align="center">
+					<p><img src="{%$staticUrl%}/apps/island/images/dm_200.gif" width="140" height="140" id="dm2" class="diamond" onclick="payOrder('frmPayOrder', 20);" title="兑换200宝石，送20宝石" /><br />
+						价格：20人人豆<br />
+						<input type="button" name="btnOrder2" id="btnOrder2" onclick="payOrder('frmPayOrder', 20);" value="充值" class="orderbtn" class="diamond" />
+					</p>
+					<label></label>
+				</div>
+			</div>
+			<div class="chongzhi">
+				<div align="center">
+					<p><img src="{%$staticUrl%}/apps/island/images/dm_500_2.gif" width="142" height="171" style="margin-top:-29px;" id="dm3" class="diamond" onclick="payOrder('frmPayOrder', 50);" title="兑换500宝石，送60宝石"/><br />
+						价格：50人人豆<br />
+						<input type="button" name="btnOrder3" id="btnOrder3" onclick="payOrder('frmPayOrder', 50);" value="充值" class="orderbtn" class="diamond" />
+					</p>
+					<label></label>
+				</div>
+			</div>
+			<div class="chongzhi">
+				<div align="center">
+					<p><img src="{%$staticUrl%}/apps/island/images/dm_1000_2.gif" width="164" height="180" style="margin-top:-39px;" id="dm4" class="diamond" onclick="payOrder('frmPayOrder', 100);" title="兑换1000宝石，送140宝石"/><br />
+						价格：100人人豆<br />
+						<input type="button" name="btnOrder4" id="btnOrder4" onclick="payOrder('frmPayOrder', 100);" value="充值" class="orderbtn" class="diamond" />
+					</p>
+					<label></label>
+				</div>
+			</div>
+		</form>
+        <script type="text/javascript">
+        	var loadingDialog = null;
+        	var errorDialog = null;
+            var $ = function()
+            {
+                return document.getElementById(arguments[0]);
+            };
+
+            function enableSubmit()
+            {
+            	$('btnOrder1').setDisabled(false);
+            	$('btnOrder2').setDisabled(false);
+            	$('btnOrder3').setDisabled(false);
+            	$('btnOrder4').setDisabled(false);
+            }
+
+            function disableSubmit()
+            {
+            	$('btnOrder1').setDisabled(true);
+            	$('btnOrder2').setDisabled(true);
+            	$('btnOrder3').setDisabled(true);
+            	$('btnOrder4').setDisabled(true);
+            }
+
+            function submit(f, num)
+            {
+                var pForm = $(f);
+
+                var ajax = new Ajax(Ajax.JSON);
+
+                ajax.ondone = function(data) {
+                    $('token').setValue(data.token);
+                    $('order_number').setValue(data.order_id);
+                    $('order_desc').setValue(data.amount + "个人人豆兑换" + data.gold + "个宝石");
+                    pForm.submit();
+                };
+
+                ajax.onerror = function(err) {
+                	loadingDialog.hide();
+                    getErrorDialog().show();
+                };
+
+                var url = 'http://rrisland.hapyfish.com/callback/pay';
+                var params = {'amount': num};
+                ajax.post(url, params, false);
+            }
+
+            function getLoadingDialog()
+            {
+            	if (!loadingDialog) {
+            		loadingDialog = new Dialog(Dialog.DIALOG_PANEL, '正在提交订单，请稍等......', '充值提示');
+                    var dm1 = $('dm1');
+                    loadingDialog.setAlignType('2-1');
+            		loadingDialog.moveTo(dm1);
+            	}
+
+            	return 	loadingDialog;
+            }
+
+            function getErrorDialog()
+            {
+            	if (!errorDialog) {
+            		errorDialog = new Dialog(Dialog.DIALOG_PANEL, '暂时无法提交订单，请稍后重试。', '出现错误啦');
+            		var btnOK = new Button('确定', function(){
+            			errorDialog.hide();
+                    	enableSubmit();
+                    });
+                    errorDialog.addFooter(btnOK);
+                    var dm1 = $('dm1');
+                    errorDialog.setAlignType('2-1');
+            		errorDialog.moveTo(dm1);
+            	}
+
+            	return 	errorDialog;
+            }
+
+            function payOrder(f, num)
+            {
+            	disableSubmit();
+            	getLoadingDialog().show();
+                submit(f, num);
+            }
+
+			enableSubmit();
+        </script>
+	</div>
+</div>
+
+<iframe style="display: none;" src="{%$staticUrl%}/pay_top.htm"></iframe>

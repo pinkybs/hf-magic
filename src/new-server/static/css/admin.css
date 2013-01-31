@@ -1,0 +1,370 @@
+@charset "utf-8";
+
+/* reset
+ ---------------------------- */
+* {
+	zoom:1;
+}
+:link,:visited{
+	text-decoration:none;
+}
+html{
+	height:100%;
+	overflow-y:scroll;
+}
+body{
+	height:100%;
+}
+html,body,div,ul,ol,li,dl,dt,dd,form,fieldset,input,textarea,h1,h2,h3,h4,h5,h6,pre,code,p,blockquote,hr,th,td{
+	margin:0;padding:0;
+}
+h1,h2,h3,h4,h5,h6{
+	font-size:100%;
+	font-weight:normal;
+}
+table{
+	border-collapse:collapse;
+	border:none;
+	border-spacing:0;
+}
+fieldset,img,abbr,acronym{
+	border:0;
+}
+ol,ul{
+	list-style:none;
+}
+li{
+	display:list-item;
+	zoom:normal;
+}
+caption,th{
+	text-align:left;
+}
+q:before,q:after{
+	content:'';
+}
+a{
+	text-decoration:underline;
+	outline:none;
+}
+hr{
+	display: none;
+}
+a img,:link img,:visited img{
+	border:none;
+}
+address{
+	font-style:normal;
+}
+input,textarea,select {
+	font-size: 100%;
+	/*font-family:'Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック','ヒラギノ角ゴ Pro W3',sans-serif;*/
+}
+/* common setting
+ ---------------------------- */
+.clearfix{/*for IE 5.5-7*/
+	zoom:1;
+}
+.clearfix:after{/*for modern browser*/
+	content:".";
+	display: block;
+	height:0px;
+	clear:both;
+	visibility:hidden;
+}
+a:link{
+	color: #00f;
+	text-decoration: underline;
+	}
+a:visited{
+	color: #606;
+	text-decoration: underline;
+	}
+a:hover{
+	color: #f00;
+	text-decoration: none;
+	}
+a:active{
+	color: #f00;
+	text-decoration: none;
+	}
+body{
+	/*font-family:'Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック','ヒラギノ角ゴ Pro W3',sans-serif;*/
+	}
+
+/***
+ ** @admin
+**------------------------------------------------------------------ */
+body#admin{
+	background: #C4E1FF !important;
+	min-width:980px;
+	width:100%;
+}
+body#admin h1{
+	padding: 5px;
+	color: #ffffff;
+	font-family: "Arial Black";
+	font-size: 150%;
+}
+body#admin ul#nav{
+	background: #F0F5F8;
+}
+	body#admin ul#nav li{
+		display: inline;
+	}
+		body#admin ul#nav li a{
+			padding: 0 20px;
+			color: #000000;
+			background: #F0F5F8;
+			text-decoration: none;
+		}
+		body#admin ul#nav li a:hover{
+			background: #e5004f;
+			color: #ffffff;
+		}
+		body#admin ul#nav li span{
+			padding: 0 20px;
+			color: #e5004f;
+			text-decoration: none;
+		}
+body#admin #container{
+	padding: 15px;
+	background: #fff;
+}
+body#admin #container h2{
+	padding: 5px 15px;
+	background: #004B97;
+	color: #fff;
+	font-size: 120%;
+	font-weight: 700;
+}
+/**
+** @auth
+*----------------------------------*/
+body#admin #container #auth{
+}
+	body#admin #container #auth a{
+		color: #333333;
+		text-decoration: none;
+	}
+	body#admin #container #auth a:hover{
+		color: #ffffff;
+		background: #00a0e9;
+	}
+	body#admin #container #auth .description{
+		margin-top: 20px;
+	}
+	body#admin #container #auth .error{
+		margin-bottom: 5px;
+		padding: 2px;
+		background: #ffcccc;
+		border: 1px solid #ff9999;
+	}
+	body#admin #container #auth ul li{
+		padding: 20px 0;
+		border-bottom: 1px solid #f0f0f0;
+	}
+/**
+** @appsAdmin
+*----------------------------------*/
+body#admin #container #appsAdmin{
+}
+	body#admin #container #appsAdmin ul.nav{
+		background: #00a0e9;
+	}
+		body#admin #container #appsAdmin ul.nav li{
+			display: inline;
+			text-align: center;
+		}
+			body#admin #container #appsAdmin ul.nav li a{
+				padding: 0 10px;
+				background: #00a0e9;
+				color: #ffffff;
+				text-decoration: none;
+			}
+			body#admin #container #appsAdmin ul.nav li a:hover{
+				padding: 0 10px;
+				background: #e5004f;
+				color: #ffffff;
+				text-decoration: none;
+			}
+			body#admin #container #appsAdmin ul.nav li span{
+				padding: 0 10px;
+				background: #e5004f;
+				color: #ffffff;
+				text-decoration: none;
+			}
+/**
+** @analyzer
+*----------------------------------*/
+body#admin #container #analyzer{
+}
+	body#admin #container #analyzer a{
+		color: #333333;
+		text-decoration: none;
+	}
+	body#admin #container #analyzer a:hover{
+		color: #ffffff;
+		background: #00a0e9;
+	}
+	body#admin #container #analyzer .error{
+		margin-top: 20px;
+		padding: 10px;
+		background: #ffcccc;
+		border: 1px solid #ff9999;
+	}
+	body#admin #container #analyzer ul li{
+		padding: 20px 0;
+		border-bottom: 1px solid #f0f0f0;
+	}
+	body#admin #container #analyzer .data{
+		padding-top: 20px;
+	}
+/**
+** @common
+*----------------------------------*/
+body#admin #container table{}
+	body#admin #container table tr{
+		vertical-align: top;
+	}
+	body#admin #container table a{
+		color: #333333;
+		text-decoration: none;
+	}
+	body#admin #container table a:hover{
+		color: #ffffff;
+		background: #00a0e9;
+	}
+
+#watchHead{
+	padding: 20px 0;
+}
+	#watchHead h3{
+		padding-bottom: 5px;
+		border-bottom: 1px solid #ccc;
+		font-size: 120%;
+	}
+	#watchHead p{
+		margin-top: 10px;
+	}
+	#watchHead .error{
+		margin-top: 20px;
+		padding: 10px;
+		background: #ffcccc;
+		border: 1px solid #ff9999;
+	}
+
+#watchFoot{
+	padding: 20px 0;
+	text-align: center;
+}
+	#watchFoot p{
+		margin-top: 10px;
+	}
+	#watchFoot a{
+		color: #333333;
+		text-decoration: none;
+	}
+	#watchFoot a:hover{
+		color: #ffffff;
+		background: #00a0e9;
+	}
+
+
+#searchBox{
+	padding-top: 20px;
+	border-top: 1px solid #ccc;
+}
+
+/**
+** @dataGrid
+*----------------------------------*/
+body#admin #container table#dataGrid{}
+	body#admin #container table#dataGrid th,
+	body#admin #container table#dataGrid td{
+		padding: 5px 10px;
+	}
+	body#admin #container table#dataGrid thead th{
+		background: #f0f0f0;
+		border-bottom: 1px solid #e0e0e0;
+	}
+	body#admin #container table tr.a td{}
+	body#admin #container table tr.b td{
+		background: #f5f5f5;
+	}
+/**
+** @twoPain
+*----------------------------------*/
+body#admin #container table#twoPain{}
+body#admin #container table#twoPain td{
+	width: 240px;
+	padding-right: 5px;
+	border-right: 1px solid #ccc;;
+}
+body#admin #container table#twoPain td ul{
+}
+body#admin #container table#twoPain td ul li{}
+body#admin #container table#twoPain td ul li a{
+	display: block;
+	margin-top: 5px;
+	padding: 5px;
+	background: #f5f5f5;
+	border: 1px solid #ccc;
+}
+body#admin #container table#twoPain td ul li a:hover{
+	background: #00a0e9;
+	border: 1px solid #00a0e9;
+}
+body#admin #container table#twoPain th{
+	padding: 5px 0 0 15px;
+	font-weight: normal;
+}
+body#admin #container table#twoPain th h3{
+	padding: 5px 0;
+	border-bottom: 1px solid #ccc;
+	font-size: 150%;
+}
+body#admin #container table#twoPain th .description{
+	margin-top: 20px;
+}
+body#admin #container table#twoPain th .error{
+	margin-top: 20px;
+	padding: 10px;
+	background: #ffcccc;
+	border: 1px solid #ff9999;
+}
+body#admin #container table#twoPain th ul{
+}
+body#admin #container table#twoPain th ul li{
+	padding: 20px 0;
+	border-bottom: 1px solid #f0f0f0;
+}
+body#admin #footer{
+	padding: 10px;
+	color: #fff;
+	text-align: center;
+}
+
+.validation-advice {
+	-moz-border-radius-bottomleft:2px;
+	-moz-border-radius-bottomright:2px;
+	-moz-border-radius-topleft:2px;
+	-moz-border-radius-topright:2px;
+	border:1px solid #FCCD83;
+	color:#FF0000;
+	background:#FEEBCD;
+	background-image:url(../img/icon/alert.png);
+	background-positionX:left;
+	background-repeat : no-repeat;
+	font-size:12px;
+	font-weight:bold;
+	margin-bottom:5px;
+	margin-top:3px;
+	padding:3px 3px 3px 18px;
+}
+
+.completeMsg {
+	font-weight: bold;
+	color:blue;	
+	padding: 8px;
+}

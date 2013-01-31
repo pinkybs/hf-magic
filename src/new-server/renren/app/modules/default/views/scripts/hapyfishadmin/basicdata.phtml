@@ -1,0 +1,78 @@
+{%include file="hapyfishadmin/header.phtml"%}
+	<h1>快乐魔法后台管理</h1>
+	{%include file="hapyfishadmin/nav.phtml"%}
+
+	<div id="container" style="">
+		<strong>开发中...</strong>
+		<strong><div id="lblResult" style="color:red"></div></strong>
+		<div>当前版本号：<input type="text" id="txtNowVer" value="{%$ver%}" readOnly="true" maxLength="10" size="10" />
+			更新版本号：<input type="text" id="txtNewVer" value="" maxLength="10" size="10" />
+			<input type="button" id="btnClear" value=" 基础数据清缓存 " />
+		</div>
+
+		<div style="margin-top:10px;height:900px;background-color:#F9F5f8;">
+            <div style="float:left;width:150px;">
+    		基本数据表一览：<br />
+    		<table width="100%">
+    			{% foreach from=$tblist item=data key=key %}
+    			<tr ><td>
+    				{% if $data.name=="line" %}
+    				-------------------
+    				{% else %}
+    				<a href="#" style="color:blue;" onclick="showDetail('{%$key%}');">{%$data.name%}</a>
+    				{% /if %}
+    			</td></tr>
+    			{% /foreach %}
+    		</table>
+            </div>
+
+            <div style="float:left;background-color:#EFFFFF;margin-left:20px;">
+            	<strong>数据视图</strong><br />
+				<iframe id="frmData" width="1100" height="880" name="frmData" marginwidth="0" marginheight="0" frameborder="0" scrolling="auto"></iframe>
+            </div>
+		</div>
+	</div><!--/#container-->
+
+<script type="text/javascript">
+    $(document).ready(function() {
+    	$("#btnClear").unbind('click');
+        $("#btnClear").click(doClear);
+    });
+
+    //清基本数据缓存
+	function doClear() {
+		var newVer = $('#txtNewVer').val();
+		if (!newVer) {
+			$('#lblResult').html('请输入数字版本号，建议用当前年月日 加今天是第几次更新了').show().fadeOut(5000);
+			return;
+		}
+		$('#btnClear').attr('disabled', true);
+
+		$.ajax({
+            type: 'POST',
+            url: '/hapyfishadmin/reloadbasic',
+            data: {'ver': newVer},
+            dataType: 'text',
+            timeout: 30000,
+            success: function(resp){
+            	$('#lblResult').html(resp).show().fadeOut(3000);
+            	$('#txtNowVer').val(newVer);
+            	$('#txtNewVer').val('');
+            },
+    		error: function(resp){
+    			ffdebug('err:'+resp);
+    		},
+    		complete: function(resp){
+    			//ffdebug('complete:'+resp);
+    			$('#btnClear').attr('disabled', false);
+    		}
+ 		});
+	}
+
+	function showDetail(tbname) {
+		//alert(tbname);
+		$('#frmData').attr('src', ('detaildata?table='+tbname));
+		return;
+	}
+</script>
+{%include file="hapyfishadmin/footer.phtml"%}

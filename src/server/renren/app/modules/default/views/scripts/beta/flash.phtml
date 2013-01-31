@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>快乐岛主</title>
+    <style type="text/css">
+        html, body { height:100%; }
+        body { margin:0; }
+    </style>
+</head>
+<body scroll="no">
+    <div id="swfcontent">
+        <div id="flashdiv"></div>
+        <script src="http://cdn.hapyfish.com/js/swfobject.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            var flashVars={"ver":"92","loadingUi":"http://cdn.hapyfish.com/renren/swf/v02/loadingUi2.swf", "interfaceUrl":"http://rrisland.hapyfish.com/beta/initswf","snsType":"renren"};
+            var params = { base: "http://cdn.hapyfish.com/renren/", allowScriptAccess: "always", menu:"false", wmode: "opaque", allowFullScreen: "false", bgcolor: "#ffffff", align: "middle", quality: "high"};
+            var attrs = { id: "islandLoader", name: "islandLoader" };
+            swfobject.embedSWF("http://cdn.hapyfish.com/renren/swf/v09/islandLoader.swf", "flashdiv",  "748", "600", "9.0.0", "http://cdn.hapyfish.com/renren/expressInstall.swf", flashVars, params, attrs);
+        </script>
+    </div>
+    <script src="http://static.connect.renren.com/js/v1.0/FeatureLoader.jsp" type="text/javascript" ></script>
+    <script type="text/javascript">
+        XN_RequireFeatures(["EXNML"], function()
+        {
+           XN.Main.init("ac058bfe285946798a4947f1c2ebf00b", "http://rrisland.hapyfish.com/rr_xd_receiver.html");
+        });
+
+        var APP_DOMAIN = '{%$domain%}';
+    </script>
+    <script src="http://cdn.hapyfish.com/js/json.js?v=1.1" type="text/javascript"></script>
+    <script src="http://cdn.hapyfish.com/renren/apps/island/js/nav.js?v=1.5" type="text/javascript"></script>
+    <script src="http://www.google-analytics.com/ga.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        try {
+            var pageTracker = _gat._getTracker("UA-15485832-1");
+            pageTracker._setVar('{%$uid%}');
+            pageTracker._trackPageview();
+        } catch(err) {}
+
+        function trackPage(page)
+        {
+            /*
+            if (pageTracker) {
+                pageTracker._trackPageview(page);
+            }*/
+        }
+    </script>
+</body>
+</html>

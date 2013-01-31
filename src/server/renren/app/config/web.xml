@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<app>
+
+	<version>
+		<js>01:20100120</js>
+		<css>01:20100120</css>
+	</version>
+	
+    <module>
+        <default>default/controllers</default>
+    </module>
+    
+	<rewriterouter>
+			<routes>
+				<index>
+					<type>MyLib_Zend_Controller_Router_Route_Static</type>
+					<route>flash</route>
+					<defaults>
+						<controller>index</controller>
+					</defaults>
+				</index>
+			</routes>
+	</rewriterouter>
+</app>

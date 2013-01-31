@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>选择礼物 - 赠送礼物 - 欢乐海岛</title>
+<link href="{%$staticUrl%}/apps/island/css_2011041102.css?v=1.04" rel="stylesheet" type="text/css" />
+<link href="{%$staticUrl%}/apps/island/css_gift.css?v=1.17" rel="stylesheet" type="text/css" />
+<style type="text/css">
+<!--
+a img,:link img,:visited img {
+	border: 0 none;
+}
+-->
+</style>
+</head>
+<body scroll="no">
+<div class="main" style="height:700px;">
+{%include file="menu.phtml"%}
+<div class="bg">
+<div class="sl01-bg01"></div>
+<div class="sl01-bg02">
+<div class="sl01-bg02-1 left"></div>
+<div class="sl01-bg02-2 left"><a href="javascript:void(0)"><img
+	src="{%$staticUrl%}/apps/island/images/gift2/sl01_03.gif" alt="赠送礼物"
+	border="0" /></a></div>
+<div class="sl01-bg02-3 left"><a href="{%$hostUrl%}/gift/get"><img
+	src="{%$staticUrl%}/apps/island/images/gift2/sl01_04.gif" alt="收到的礼物"
+	border="0" /></a></div>
+<div class="sl01-bg02-4 left"><a href="{%$hostUrl%}/gift/post"><img
+	src="{%$staticUrl%}/apps/island/images/gift2/sl01_05.gif" alt="送出的礼物"
+	border="0" /></a></div>
+<div class="sl01-bg02-5 left"></div>
+<div class="sl01-bg02-6 left"></div>
+</div>
+<div class="sl01-bg03">
+<div class="sl01-li">
+<div class="liwu-cz right"><a href="/pay/top" target="_parent"><img src="{%$staticUrl%}/apps/island/images/gift2/sl01-cz.gif" alt="充值" border="0" /></a></div>
+<div class="liwu-bss right"> 余额：{%$userGold%}宝石</div>
+<div class="liwu-bt right"><a href="{%$hostUrl%}/gift/top/tid/2"><img
+	src="{%$staticUrl%}/apps/island/images/gift2/sl01-sclw.gif" id="img2" alt="收费礼物"
+	border="0" /></a></div>
+<div class="liwu-bt right"><a href="{%$hostUrl%}/gift/top/tid/1"><img
+	src="{%$staticUrl%}/apps/island/images/gift2/sl01-mflw.gif" id="img1" border="0" /></a></div>
+</div>
+</div>
+
+<div class="sl01-bg04_1" id="type_4">
+<div class="liwu-ul" style="padding-left:50px; padding-top:110px;text-align:center;font-size:14px; height:200px;color:#ff0000;">
+  {%$msg%}
+  <br/>
+  <a href="{%$hostUrl%}/gift/top"><img src="{%$staticUrl%}/apps/island/images/gift2/fhyx.gif" border="0" /></a>
+</div>
+</div>
+
+<div class="sl01-bg07">
+<div class="sclw left" id="dosubmit3"><a href="javascript:void(0);" onclick="doSubmit(3)"></a></div>
+<div class="sl02-zx left" id="page_3"></div>
+</div>
+<div class="sl01-bg08"></div>
+</div>
+<div class="zslw"></div>
+</div>
+</body>
+</html>

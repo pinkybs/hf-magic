@@ -1,0 +1,10 @@
+<?php
+class DecorType {
+	CONST DESK = 1;
+	CONST DOOR = 2;
+	CONST FLOOR = 3;
+	CONST WALL = 4;
+	CONST DECOR = 5;
+	CONST TOOLS = 6;
+	CONST WALL_DECOR = 7;
+}

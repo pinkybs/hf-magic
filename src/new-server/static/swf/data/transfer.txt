@@ -1,0 +1,1 @@
+{"students": [{"avatar_id":"1", "decor_id":"57", "state" : "1"}, {"avatar_id":"1", "decor_id":"0", "state" : "0"}]}

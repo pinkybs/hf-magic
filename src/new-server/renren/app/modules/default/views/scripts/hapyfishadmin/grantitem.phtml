@@ -1,0 +1,93 @@
+{%include file="hapyfishadmin/header.phtml"%}
+	<h1>快乐魔法后台管理</h1>
+	{%include file="hapyfishadmin/nav.phtml"%}
+
+	<div id="container">
+		<strong>物品发放</strong>
+		<div id="errMsg" class="error" style="color:red;display:none"></div>
+
+		<div id="divedit">
+    		<table width="100%">
+    			<tr><th style="width:320px;table-layout:fixed;">发放项目</th><th style="width:260px; table-layout: fixed;">发放内容</th><th>发放数量</th></tr>
+    			<tr>
+    				<td>金币</td><td>-</td><td><input type="text" id="txtCoin" value="" maxlength="8" size="10" /></td>
+    			</tr>
+    			<tr>
+    				<td>宝石</td><td>-</td><td><input type="text" id="txtGold" value="" maxlength="8" size="10" /></td>
+    			</tr>
+    			<tr>
+    				<td>物品</td><td><select id="selItem">
+            				 <option value="">未选择</option>
+            				 {% foreach from=$items item=data %}
+            					<option value="{%$data.i_id%}">{%$data.i_id%}-{%$data.name|escape%}</option>
+            				 {% /foreach %}
+            			   </select></td><td><input type="text" id="txtItem" value="" maxlength="8" size="10" /></td>
+            	</tr>
+    			<tr>
+    				<td>装饰</td><td><select id="selDecor">
+            				 <option value="">未选择</option>
+            				 {% foreach from=$decors item=data %}
+            					<option value="{%$data.d_id%}">{%$data.d_id%}-{%$data.name|escape%}</option>
+            				 {% /foreach %}
+            			   </select></td><td><input type="text" id="txtDecor" value="" maxlength="8" size="10" /></td>
+            	</tr>
+            	<tr>
+            		<td>发送到的门牌号（可多个门牌用,分隔）</td><td colspan="2"><textarea rows="6" cols="22" id="txtUids" wrap="soft"></textarea></td>
+            	</tr>
+    			<tr><td colspan="3"><input type="button" id="btnSubmit" value="　发放　" /></td></tr>
+    		</table>
+		</div>
+	</div><!--/#container-->
+
+<script type="text/javascript">
+    $(document).ready(function() {
+    	$("#btnSubmit").unbind('click');
+	    $("#btnSubmit").click(doSubmit);
+    });
+
+    function doSubmit() {
+    	//check
+    	if ($.trim($('#txtUids').val()) == '') {
+    		$('#errMsg').html('请输入至少一个用户门牌号').show().fadeOut(2000);
+    		return;
+    	}
+
+    	$('#errMsg').html('****处理中，请稍后......').show().fadeIn('fast');
+    	$('#btnSubmit').attr('disabled', true);
+
+    	var pardata = {};
+    	pardata.coin = $('#txtCoin').val();
+    	pardata.gold = $('#txtGold').val();
+    	pardata.item = $('#selItem').val();
+    	pardata.decor = $('#selDecor').val();
+    	pardata.cntItem = $('#txtItem').val();
+    	pardata.cntDecor = $('#txtDecor').val();
+    	pardata.uids = $.trim($('#txtUids').val());
+
+    	$.ajax({
+            type: 'POST',
+            url: '/hapyfishadmin/ajaxgrantitem',
+            data: pardata,
+            dataType: 'json',
+            timeout: 30000,
+            success: function(resp){
+            	if (resp.status==1) {
+                	alert(resp.msg);
+            		$('#errMsg').html('*****处理完成!*****'+resp.tm).fadeOut(3000);
+            	}
+            	else {
+            		$('#errMsg').html('*****失败，请稍后再试*****' + resp.msg);
+                }
+            },
+    		error: function(resp){
+    			ffdebug('err:'+resp);
+    		},
+    		complete: function(resp){
+    			//ffdebug('complete:'+resp);
+    			$('#btnSubmit').attr('disabled', false);
+    		}
+ 		});
+    }
+</script>
+
+{%include file="hapyfishadmin/footer.phtml"%}

@@ -1,0 +1,213 @@
+<script type="text/javascript" src="{%$staticUrl%}/js/renren.js"></script>
+<script type="text/javascript">
+	var HFApp = {
+		appId: "",
+		appName: "",
+		appHostUrl: "",
+		appStaticUrl: "",
+		sns: "",
+		gameUrl: "",
+		uid: "",
+		puid: "",
+		sessionkey: "",
+		sessionid: "",
+
+		init: function(config) {
+			this.gameUrl = "http://apps.renren.com/" + config.appName + "/",
+			this.appId = config.appId;
+			this.appHostUrl = config.appHostUrl;
+			this.appStaticUrl = config.appStaticUrl;
+			this.sns = config.sns;
+			this.uid = config.uid;
+			this.puid = config.puid;
+			this.sessionkey = config.sessionkey;
+			this.sessionid = config.sessionid;
+		},
+
+	    feed: function(feedSettings) {
+			try {
+				if (feedSettings) {
+					var title = '快乐魔法-'+feedSettings.caption;
+					var content = feedSettings.description;
+					var img = this.appStaticUrl + '/img/magic/activity/'+feedSettings.id+'.jpg';
+					var link = this.gameUrl;
+					var actionUrl = this.gameUrl;
+					var actionText = '一起玩';
+					if (feedSettings.link_text) {
+						actionText = feedSettings.link_text;
+					}
+					if (feedSettings.para) {
+						actionUrl += 'index?' + feedSettings.para;
+						link += 'index?' + feedSettings.para;
+					}
+
+					var top,left,width,height;
+			    	var uiOpts = {
+	                    url : 'feed',
+	                    display : 'iframe',
+	                    method : '',
+	                    style : {
+	                      top : top==''? null : top,
+	                      left : left==''? null : left,
+	                      width : width==''? null : width,
+	                      height : height==''? null : height
+	                    },
+	                    params: {"url":link, "name":title, "description":content, "image":img},
+	                    onComplete : function(response){
+	                      //if(window.console) console.log("complete: "+response.error);
+	                    },
+	                    onSuccess : function(response){
+	                      if(window.console)
+	                    	  console.log("success: "+response.post_id);
+	                      if(response.access_token) {
+	                    	  accessToken = response.access_token;
+	                    	  console.log("access token: "+accessToken);
+	                      }
+	                    },
+	                    onFailure : function(response){
+	                      if(window.console)
+	                    	  console.log("failure: " + response.error + ',' + response.error_description);
+	                    }
+	  	    		};
+
+	    	    	Renren.init({appId: this.appId});
+	  	    		Renren.ui(uiOpts);
+				}
+			}catch(e){}
+	    },
+
+	    resize: function() {
+
+		},
+
+	    invite: function(sig) {
+		    var top,left,width,height;
+	    	var uiOpts = {
+                url : 'request',
+                display : 'iframe',
+                method : '',
+                style : {
+                  top : top==''? null : top,
+                  left : left==''? null : left,
+                  width : width==''? null : width,
+                  height : height==''? null : height
+                },
+                params: {"accept_url":(this.gameUrl+"?hf_invitesig="+sig),"actiontext":"赶快加入一起玩吧！","accept_label":"接受邀请"},
+                onComplete : function(response){
+                  //if(window.console) console.log("complete: "+response.error);
+                },
+                onSuccess : function(response){
+                  if(window.console)
+                	  console.log("success: "+response.ids);
+                  if(response.access_token){
+                	  accessToken = response.access_token;
+                	  console.log("access token: "+accessToken);
+                  }
+                },
+                onFailure : function(response){
+                  if(window.console)
+                	  console.log("failure: " + response.error + ',' + response.error_description);
+                }
+	    		};
+
+	    	Renren.init({appId: this.appId});
+	    	Renren.ui(uiOpts);
+	    },
+
+	    pay: function() {
+	    	this.loadHtml('/pay/top', 'POST', {}, 'text', 'payIframe');
+	    },
+
+	    home: function() {
+	    	top.location.href = this.gameUrl;
+	    },
+
+		loadHtml: function(url, method, pardata, dataType, id) {//require jquery api support
+			if (!method) { //("POST"  or  "GET")
+				method = 'GET';
+			}
+			if (!dataType) {//xml html script json jsonp text
+				dataType = "text";
+			}
+			$.ajax({
+                type: method,
+                url: url,
+                data: pardata,
+                dataType: dataType,
+                success: function(resp){
+                	$("#" + id).html(resp);
+                	HFApp.resize();
+                }
+	 		});
+		}
+	}
+</script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		initGame();
+	});
+
+	function initGame()
+    {
+    	//console.debug('init game');
+		var config = {appId:'{%$smarty.const.APP_ID%}', appName:'{%$smarty.const.APP_NAME%}', appHostUrl:'{%$hostUrl%}', appStaticUrl:'{%$staticUrl%}',
+                	  sns:'renren', uid:'{%$uid%}', puid:'{%$platformUid%}', sessionkey:'{%$sessionkey%}', sessionid:'{%$sessionid%}'};
+		HFApp.init(config);
+	    $("#mnuInvite,#clsFanBox,#clsInviteBox").unbind('click');
+	    $("#mnuInvite").click(goInvite);
+	    $("#clsInviteBox").click(closeInvite);
+	    $("#clsFanBox").click(closeFans);
+    }
+
+	function goInvite()
+	{
+		HFApp.invite('{%$inviteSig%}');
+	}
+
+	function closeInvite()
+	{
+		alert('todo');
+	}
+
+	function goFans()
+	{
+		$("#fanBox").toggle();
+	}
+
+	function closeFans()
+	{
+		$("#fanBox").toggle();
+	}
+
+
+	function goPay()
+	{
+		HFApp.pay();
+		$("#payBox").show();
+	}
+
+	function closePay()
+	{
+		$("#payBox").hide();
+	}
+
+	function reloadGame()
+	{
+		HFApp.home();
+	}
+
+	function sendFeed(feed)
+	{
+		//var feed = '{"text":"敢不敢比一比谁的游艇更高级！","img":"http://static.hapyfish.com/weibo/apps/island/images/feed/boat_level_up.gif","linktext":"开始游戏","templateContent":"你的小破船不够看啦~"}';
+		var feedSettings = $.parseJSON(feed);
+		if(window.console) console.log("call js sendfeed, id:" + feedSettings.id);
+		HFApp.feed(feedSettings);
+	}
+
+    function ffdebug(content) {
+    	if (window.console && console.debug) {
+			console.debug(content);
+  		}
+    }
+</script>

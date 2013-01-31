@@ -1,0 +1,307 @@
+.css {
+}
+body,td,th {
+	font-family: 宋体, Arial;
+	font-size: 12px;
+	color: #333333;
+	list-style-type: none;
+}
+body {
+	margin: 0 auto;
+}
+ul,li { margin:0px; padding:0px;
+	list-style-position: inside;
+	list-style-image: none;
+	list-style-type: none;}
+a{text-decoration:none;color:#0c67b6;}
+a:hover{ color:#0c67b6;}
+.main {
+	height: 800px;
+	width: 748px;
+}
+.title{
+	height: 48px;
+	width: 748px;
+	background-color:#e5f6fd;
+	margin-top:5px;
+}
+.menu{}
+.tips{height:20px; width:748px; background-color:#e9e9e9; margin:5px 0}
+.tips img { padding-top:5px}
+.logo{	float: left; padding:0 5px 0 0 }
+.main .title ul{ display:block; width:560px; float:right; padding-right:5px;}
+.main .title ul li { display:block;list-style-type: none; float:right;padding-top: 8px;padding-right:3px;padding-bottom: 0;}
+.txtcontent{
+	padding-top:35px;
+	height: 30px;
+	width: auto;
+	color: #3c8db0;
+	text-align: center;
+	font-size: 18px;
+	font-weight: bold;
+}
+.btlist{
+	height: 30px;
+	width: 748px;
+	float: right;
+	padding:20px 0 10px 0;
+}
+.content{
+	height: 420px;
+	width: 748px;
+	clear: right;
+	padding-top:32px;
+}
+.content2{
+	height: 235px;
+	width: 748px;
+	background-color: #ededed;
+	clear: right;
+	padding-top:32px;
+	background-image: url(http://static.hapyfish.com/renren/apps/island/images/conbgtu.gif);
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.content .giftlist li{
+	background-image: url(http://static.hapyfish.com/renren/apps/island/images/liwu_28.gif);
+	background-repeat: no-repeat;
+	height: 156px;
+	width: 145px;
+	float:left;
+	padding-left: 28px;
+	padding-top: 22px;
+
+}
+.content .giftlist li image{
+	height: 80px;
+	width: 80px;
+}
+
+.content .friendlist li{
+    float:left;
+    padding:2px;
+}
+
+.txt{
+	height: 14px;
+	width: 80px;
+	padding-top: 10px;
+	text-align: center;
+	color: #5e5e5e;
+}
+.txt2{
+	height: 14px;
+	width: 80px;
+	text-align: center;
+	color: #ff6001;
+	font-weight: bold;
+}
+.txt3{
+	height: 14px;
+	width: 80px;
+	text-align: center;
+	color: #5e5e5e;
+	font-weight: bold;
+	float: left;
+	padding-top:120px;
+	padding-left:170px;
+}
+.dian {
+	height: 20px;
+	width: 80px;
+	text-align: center;
+}
+.bottom{
+	height: 48px;
+	width: 760px;
+	background-image: url(http://static.hapyfish.com/renren/apps/island/images/bottom.jpg);
+	background-repeat: no-repeat;
+	text-align: center;
+	margin-top:30px;
+	padding-top: 10px;
+}
+.liwu{   
+	height: 120px;
+	width: 80px;
+}
+.liwuk{
+	float: left;
+	padding-top: 48px;
+	padding-left: 210px;
+}
+.chongzhicontent{
+	height: 70px;
+	width: 750px;
+	color: #3c8db0;
+	padding-top:20px;
+}
+.chongzhicontent img{
+	margin-left:20px;
+	float: left;
+}
+.xinxi{	
+	height: 60px;
+	width: 650px;
+    float: left;
+	padding:5px 0 0 10px;}
+.cname{
+	height: 20px;
+	width: 80px;
+}
+.shuzi{
+	height: 20px;
+	width: 90px;
+	background-image: url(http://static.hapyfish.com/renren/apps/island/images/baoshi.gif);
+	background-repeat: no-repeat;
+	color: #5e5e5e;
+	text-align: right;
+	padding: 10px 10px 0 ;
+	float: left;
+}
+.fhyx img{ margin-left:240px}
+.chongzhi{
+	height: 204px;
+	width: 143px;
+	line-height: 25px;
+	float: left;
+	margin-top: 5px;
+	margin-right: 30px;
+	margin-bottom: 0;
+	margin-left: 0;
+}
+.chongzhi .diamond{
+	cursor:pointer;
+}
+.table{
+	height:25px;
+	width:750px;
+	background-image:url(http://static.hapyfish.com/renren/apps/island/images/table-bg.gif);
+	background-repeat: repeat;
+	text-align: center;
+	margin:20px 0 10px 0;
+}
+.table li{ float:left; line-height:25px}
+.nav_01{
+	height:25px;
+	width:124px;
+	background-image:url(http://static.hapyfish.com/renren/apps/island/images/table02.gif);
+	display: block;
+	cursor :pointer;
+	font-size: 14px;
+}
+.nav_02{
+	height:25px;
+	width:124px;
+	background-image:url(http://static.hapyfish.com/renren/apps/island/images/table01.gif);
+	display: block;
+	cursor :pointer;
+	font-size: 14px;
+}
+.chongzhi02{
+	padding-left:50px;
+	margin-bottom: 20px;
+}
+.congzhitable{
+	color: #999999;
+	text-align: center;
+	line-height: 30px;
+}
+.fhyx{
+	float:right;
+	padding-right:5px;
+}
+.orderbtn{
+	padding:0 6px;
+}
+.fhyx{
+	float:right;
+	padding-right:5px;
+}
+.orderbtn{
+	padding:0 6px;
+}
+.pay-count{
+	color: #FF0000;
+}
+.table-line{
+	background-image: url(http://static.hapyfish.com/renren/apps/island/images/line.gif);
+	background-repeat: repeat-x;
+}
+.yaoqing02-1{ width:748px; height:68px; background-image:url(http://static.hapyfish.com/renren/apps/island/images/gift/songli-taobao02_01.gif);}
+.yaoqing02-1-1{
+	width:748px;
+	height:68px;
+	background-image:url(http://static.hapyfish.com/renren/apps/island/images/gift/songli-taobao01_songli.gif);
+	background-repeat: no-repeat;
+}
+.songchusuoxuan1{
+	width:132px;
+	height:34px;
+	float: right;
+	margin-right: 15px;
+	margin-top: 28px;
+}
+.songchusuoxuan2{
+	width:134px;
+	height:32px;
+	padding-top:8px;
+	margin-right: 15px;
+    float: right;
+}
+.yaoqing02-2{
+	width:790px;
+	height:380px;
+	background-image:url(http://static.hapyfish.com/renren/apps/island/images/gift/songli-taobao02_02.gif);
+	padding-top: 10px;
+	padding-left: 10px;
+	background-repeat: repeat-y;
+}
+.mingzikuang{
+	width:155px;
+	height:76px;
+	border: 2px solid #d7f0fb;
+	background-color: #FFFFFF;
+	padding-left: 10px;
+}
+.duoxuan{
+	width:22px;
+	height:45px;
+	float: left;
+	padding-top: 30px;
+	}
+.touxiang{
+	width:67px;
+	height:69px;
+	background-repeat: no-repeat;
+	float: left;
+	margin-top: 6px;
+}
+.mingzi{
+	width:63px;
+	height:65px;
+	float: left;
+	padding-top: 10px;
+}
+.liwulibiao{
+	width:105px;
+	height:136px;
+	background-image:url(http://static.hapyfish.com/renren/apps/island/images/liwu_28.gif);
+	padding-left: 28px;
+	padding-top: 25px;
+	background-repeat: no-repeat;
+}
+.yaoqing02-3{ width:748px; height:52px; background-image:url(http://static.hapyfish.com/renren/apps/island/images/gift/songli-taobao02_04.gif);}
+.songli2-left{
+	width:148px;
+	padding-left:15px;
+	float: left;
+}
+.songli2-right{
+	width:550px;
+	height:460px;
+	padding-left:5px;
+	background-color: #FFFFFF;
+	border: 1px solid #bebebe;
+	float: left;
+	padding-top: 10px;
+}

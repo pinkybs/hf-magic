@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>充值</title>
+        <link href="images/style.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" language="javascript" src="images/jquery-1.5.2.min.js"></script>
+        <script type="text/javascript" language="javascript" src="images/public.js"></script>
+    </head>
+
+    <body>
+        <div class="magic">
+            <div class="banner">这里是宣传Banner</div>
+            <div class="menu">
+                <table border="0" cellspacing="0" cellpadding="0" id="menu_table" class="menu_table">
+                    <tr>
+                        <td valign="bottom" style="width: 80px; height: 35px;"><a href="main.html"><img src="images/menu_ks.jpg" alt="开始游戏" /></a></td>
+                        <td valign="bottom" style="width: 85px; height: 42px;"><a href="invite.html"><img src="images/menu_yq.jpg" alt="邀请好友" /></a></td>
+                        <td valign="bottom" style="width: 84px; height: 36px;"><a href="gifts.html"><img src="images/menu_sl.jpg" alt="赠送礼物" /></a></td>
+                        <td valign="bottom" style="width: 86px; height: 35px;"><a href="pay.html"><img src="images/menu_cz.jpg" alt="充   值" /></a></td>
+                        <td valign="bottom" style="width: 70px; height: 35px;"><a href="#"><img src="images/menu_st.jpg" alt="收   听" /></a></td>
+                        <td valign="bottom" style="width: 70px; height: 35px;"><a href="#"><img src="images/menu_lt.jpg" alt="论   坛" /></a></td>
+                        <td valign="bottom" style="width: 70px; height: 35px;"><a href="help.html"><img src="images/menu_bz.jpg" alt="帮   助" /></a></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="pay">
+                <table border="0" cellspacing="0" cellpadding="0" id="pay_table" class="pay_table">
+                    <tr>
+                        <td colspan="3" class="pay_table_head"></td>
+                    </tr>
+                    <tr>
+                        <td class="pay_table_left"></td>
+                        <td class="pay_table_center">
+                            <div class="pay_info">
+                                <table border="0" cellspacing="0" cellpadding="0" id="pay_table_info" class="pay_table_info">
+                                    <tr>
+                                        <td rowspan="2" style="width: 60px; height: 60px; background: #fff;">我这里是头像</td>
+                                        <td style="text-align: left; text-indent: 6px; color: #3B8DAF;" valign="bottom">玩家姓名</td>
+                                    </tr>
+                                    <tr>
+                                        <td id="pay_info_ico">乐币：100</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="pay_log">
+                                <table border="0" cellspacing="0" cellpadding="0" id="pay_table_log" class="pay_table_log">
+                                    <tr>
+                                        <td valign="bottom">
+                                            <table border="0" cellspacing="0" cellpadding="0" id="pay_menu" class="pay_menu">
+                                                <tr>
+                                                    <td valign="bottom" class="pay_menu_default" id="pay_menu_0" onclick="changemenu(0, 3, 'pay_menu_default', 'pay_menu_normal', 'pay_menu_', 'pay_list_');">充值乐币</td>
+                                                    <td style="width: 5px;"></td>
+                                                    <td valign="bottom" class="pay_menu_normal" id="pay_menu_1" onclick="changemenu(1, 3, 'pay_menu_default', 'pay_menu_normal', 'pay_menu_', 'pay_list_');">充值记录</td>
+                                                    <td style="width: 5px;"></td>
+                                                    <td valign="bottom" class="pay_menu_normal" id="pay_menu_2" onclick="changemenu(2, 3, 'pay_menu_default', 'pay_menu_normal', 'pay_menu_', 'pay_list_');">消费记录</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td valign="top">
+                                            <div id="pay_list_0" class="pay_list">
+                                                <div style="color: red;">充值送好礼！升级更快！宝石更多！</div>
+                                                <div>一次性充值 10元即可获赠“加送5宝石、船只加速卡3x5张”</div>
+                                                <div>一次性充值 20元即可获赠“加送10宝石、金币20000、船只加速卡3x10张”</div>
+                                                <div>一次性充值 50元即可获赠“加送80宝石、金币50000、船只加速卡3x20张、5星建筑兔小胖、瞭望塔”</div>
+                                                <div>一次性充值 100元即可获赠“加送200宝石、金币100000、船只加速卡3x40张、5星建筑兔宝宝、5星建筑兔小傻、5星建筑兔小胖”</div>
+                                                <table border="0" cellspacing="0" cellpadding="0" id="pay_list_table0" class="pay_list_table">
+                                                    <tr>
+                                                        <td><img src="images/ico_1.gif" alt="" /></td>
+                                                        <td><img src="images/ico_1.gif" alt="" /></td>
+                                                        <td><img src="images/ico_1.gif" alt="" /></td>
+                                                        <td><img src="images/ico_1.gif" alt="" /></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="height: 50px;"><a href="#"><img src="images/pay_button.jpg" alt="充值" /></a></td>
+                                                        <td style="height: 50px;"><a href="#"><img src="images/pay_button.jpg" alt="充值" /></a></td>
+                                                        <td style="height: 50px;"><a href="#"><img src="images/pay_button.jpg" alt="充值" /></a></td>
+                                                        <td style="height: 50px;"><a href="#"><img src="images/pay_button.jpg" alt="充值" /></a></td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div id="pay_list_1" class="pay_list" style="display: none;">
+                                                <table border="0" cellspacing="0" cellpadding="0" id="pay_list_table1" class="pay_list_table">
+                                                    <tr>
+                                                        <td colspan="4" style="text-align: left; text-indent: 24px; height: 28px; line-height: 28px;">充值记录 <span style="color: #7D8D8D;">共57条</span></td>
+                                                    </tr>
+                                                    <tr class="pay_list_table_tr1">
+                                                        <td style="width: 180px; height: 38px;">日期</td>
+                                                        <td style="width: 80px; height: 38px;">充值宝石数量</td>
+                                                        <td style="width: 250px; height: 38px;">消费</td>
+                                                        <td style="height: 38px;">充值方式</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2011-04-16 20:39:14</td>
+                                                        <td style="color: #F00;">1</td>
+                                                        <td>0人人豆</td>
+                                                        <td>系统赠送</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2011-04-16 20:39:14</td>
+                                                        <td style="color: #F00;">1</td>
+                                                        <td>0人人豆</td>
+                                                        <td>系统赠送</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2011-04-16 20:39:14</td>
+                                                        <td style="color: #F00;">1</td>
+                                                        <td>0人人豆</td>
+                                                        <td>系统赠送</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2011-04-16 20:39:14</td>
+                                                        <td style="color: #F00;">1</td>
+                                                        <td>0人人豆</td>
+                                                        <td>系统赠送</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2011-04-16 20:39:14</td>
+                                                        <td style="color: #F00;">1</td>
+                                                        <td>0人人豆</td>
+                                                        <td>系统赠送</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2011-04-16 20:39:14</td>
+                                                        <td style="color: #F00;">1</td>
+                                                        <td>0人人豆</td>
+                                                        <td>系统赠送</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="4">
+                                                            <div class="global_page">
+                                                                <ul>
+                                                                    <li class="global_page_normal"><a href="#">[01]</a></li><li><a href="#">[02]</a></li><li><a href="#">[03]</a></li><li><a href="#">[04]</a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+
+                                            </div>
+                                            <div id="pay_list_2" class="pay_list" style="display: none;">
+                                                <table border="0" cellspacing="0" cellpadding="0" id="pay_list_table2" class="pay_list_table">
+                                                    <tr>
+                                                        <td colspan="4" style="text-align: left; text-indent: 24px; height: 28px; line-height: 28px;">消费记录 <span style="color: #7D8D8D;">共57条</span></td>
+                                                    </tr>
+                                                    <tr class="pay_list_table_tr1">
+                                                        <td style="width: 180px; height: 38px;">日期</td>
+                                                        <td style="width: 80px; height: 38px;">充值宝石数量</td>
+                                                        <td style="width: 250px; height: 38px;">消费</td>
+                                                        <td style="height: 38px;">充值方式</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2011-04-16 20:39:14</td>
+                                                        <td style="color: #F00;">1</td>
+                                                        <td>0人人豆</td>
+                                                        <td>系统赠送</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2011-04-16 20:39:14</td>
+                                                        <td style="color: #F00;">1</td>
+                                                        <td>0人人豆</td>
+                                                        <td>系统赠送</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2011-04-16 20:39:14</td>
+                                                        <td style="color: #F00;">1</td>
+                                                        <td>0人人豆</td>
+                                                        <td>系统赠送</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2011-04-16 20:39:14</td>
+                                                        <td style="color: #F00;">1</td>
+                                                        <td>0人人豆</td>
+                                                        <td>系统赠送</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2011-04-16 20:39:14</td>
+                                                        <td style="color: #F00;">1</td>
+                                                        <td>0人人豆</td>
+                                                        <td>系统赠送</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2011-04-16 20:39:14</td>
+                                                        <td style="color: #F00;">1</td>
+                                                        <td>0人人豆</td>
+                                                        <td>系统赠送</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="4">
+                                                            <div class="global_page">
+                                                                <ul>
+                                                                    <li class="global_page_normal"><a href="#">[01]</a></li><li><a href="#">[02]</a></li><li><a href="#">[03]</a></li><li><a href="#">[04]</a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </td>
+                        <td class="pay_table_right"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="pay_table_foot"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>
